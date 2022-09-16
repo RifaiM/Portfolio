@@ -62,6 +62,13 @@ and (max-device-width : 667px) {
                             flex-direction: column;
                             width: 100%;
 
+                            h2 {
+                                font-size: map-get(config.$h1, "mobile");
+                            }
+                            p {
+                                font-size: map-get(config.$h2, "p");
+                            }
+
                         }        
                     }
                 }
