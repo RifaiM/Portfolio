@@ -189,6 +189,9 @@ footer .container ul li a:hover {
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 240px) and (max-device-width: 667px) {
   /* HEADER */
+  header .intro {
+    height: 60vh;
+  }
   header .intro .intro-text {
     top: 50%;
     left: 50%;
@@ -198,7 +201,7 @@ footer .container ul li a:hover {
     padding: 0 1rem;
   }
   header .intro .intro-text h1 {
-    font-size: 30px;
+    font-size: 32px;
     width: 100%;
   }
   header .intro .intro-text span {
@@ -208,8 +211,60 @@ footer .container ul li a:hover {
   main {
     /* CONTACT */
   }
+  main .projects {
+    margin-top: 60vh;
+  }
   main .projects .projects-collage {
     grid-template-columns: repeat(1, 1fr);
+  }
+  main .projects .projects-collage .project-one,
+main .projects .projects-collage .project-two,
+main .projects .projects-collage .project-three,
+main .projects .projects-collage .project-four {
+    width: 100%;
+    height: 100%;
+  }
+  main .projects .projects-collage .project-one .project-figure,
+main .projects .projects-collage .project-two .project-figure,
+main .projects .projects-collage .project-three .project-figure,
+main .projects .projects-collage .project-four .project-figure {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+  main .projects .projects-collage .project-one .project-figure img,
+main .projects .projects-collage .project-two .project-figure img,
+main .projects .projects-collage .project-three .project-figure img,
+main .projects .projects-collage .project-four .project-figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  main .projects .projects-collage .project-one .project-figure .project-overlay,
+main .projects .projects-collage .project-two .project-figure .project-overlay,
+main .projects .projects-collage .project-three .project-figure .project-overlay,
+main .projects .projects-collage .project-four .project-figure .project-overlay {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    transition: 0.7s ease;
+    opacity: 1;
+    text-align: center;
+  }
+  main .projects .projects-collage .project-one .project-figure .project-text,
+main .projects .projects-collage .project-two .project-figure .project-text,
+main .projects .projects-collage .project-three .project-figure .project-text,
+main .projects .projects-collage .project-four .project-figure .project-text {
+    color: #FBFAF5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    text-align: center;
   }
   main .contact .button-slide {
     min-width: 16rem;

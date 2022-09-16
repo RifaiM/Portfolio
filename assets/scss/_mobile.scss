@@ -9,7 +9,8 @@ and (max-device-width : 667px) {
     header {
         
         .intro {
-                   
+            height: 60vh;
+
             .intro-text {
                 top: 50%;
                 left: 50%;
@@ -36,9 +37,54 @@ and (max-device-width : 667px) {
     main {
         
         .projects {
+            margin-top: 60vh;
 
             .projects-collage {
                 grid-template-columns: repeat(1, 1fr);
+
+                .project-one,
+                .project-two,
+                .project-three,
+                .project-four {
+                    width: 100%;
+                    height: 100%;
+
+                    .project-figure {
+                        width: 100%;
+                        margin: 0 auto;
+                        position: relative;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            display: block;
+                        }
+
+                        .project-overlay {
+                            position: absolute;
+                            top: 0;
+                            height: 100%;
+                            width: 100%;
+                            background: rgba(0, 0, 0, 0.4);
+                            transition: .7s ease;
+                            opacity: 1;
+                            text-align: center;
+                        }
+
+                        .project-text {
+                            color: config.$white;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            opacity: 1;
+                            text-align: center;
+                        }
+
+                        
+                    }
+                }
             }
         }
 
