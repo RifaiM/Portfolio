@@ -21,7 +21,6 @@ header .intro {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: -1;
   height: 100vh;
 }
 header .intro .intro-text {
@@ -202,9 +201,6 @@ footer .container ul li a:hover {
     width: 100%;
     text-align: center;
   }
-  header .intro .intro-text span {
-    color: #2962FF;
-  }
   /* MAIN */
   main {
     /* CONTACT */
@@ -254,9 +250,6 @@ main .projects .projects-collage .project-four .project-figure .project-text h2 
     font-size: 42px;
     width: 100%;
     text-align: center;
-  }
-  header .intro .intro-text span {
-    color: #2962FF;
   }
   /* MAIN */
   main .projects .projects-collage {
