@@ -203,6 +203,7 @@ footer .container ul li a:hover {
   header .intro .intro-text h1 {
     font-size: 32px;
     width: 100%;
+    text-align: center;
   }
   header .intro .intro-text span {
     color: #2962FF;
@@ -242,7 +243,7 @@ main .projects .projects-collage .project-four .project-figure .project-text {
 @media only screen and (min-device-width: 712px) and (max-device-width: 1138px) {
   /* HEADER */
   header .intro {
-    height: 80vh;
+    height: 60vh;
   }
   header .intro .intro-text {
     top: 50%;
@@ -253,18 +254,16 @@ main .projects .projects-collage .project-four .project-figure .project-text {
     padding: 0 1rem;
   }
   header .intro .intro-text h1 {
-    font-size: 32px;
+    font-size: 42px;
     width: 100%;
+    text-align: center;
   }
   header .intro .intro-text span {
     color: #2962FF;
   }
   /* MAIN */
-  main {
-    /* CONTACT */
-  }
   main .projects {
-    margin-top: 80vh;
+    margin-top: 60vh;
   }
   main .projects .projects-collage {
     grid-template-columns: repeat(1, 1fr);
@@ -286,7 +285,16 @@ main .projects .projects-collage .project-four .project-figure .project-text {
     flex-direction: column;
     width: 100%;
   }
-  main .contact .button-slide {
-    min-width: 16rem;
+  main .projects .projects-collage .project-one .project-figure .project-text h2,
+main .projects .projects-collage .project-two .project-figure .project-text h2,
+main .projects .projects-collage .project-three .project-figure .project-text h2,
+main .projects .projects-collage .project-four .project-figure .project-text h2 {
+    font-size: 42px;
+  }
+  main .projects .projects-collage .project-one .project-figure .project-text p,
+main .projects .projects-collage .project-two .project-figure .project-text p,
+main .projects .projects-collage .project-three .project-figure .project-text p,
+main .projects .projects-collage .project-four .project-figure .project-text p {
+    font-size: 30px;
   }
 }/*# sourceMappingURL=style.css.map */

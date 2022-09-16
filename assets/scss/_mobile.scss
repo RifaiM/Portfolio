@@ -23,6 +23,7 @@ and (max-device-width : 667px) {
                 h1 {
                     font-size: map-get(config.$h1, "mobile");
                     width: 100%;
+                    text-align: center;
                 }
         
                 span {
@@ -90,7 +91,7 @@ and (max-device-width : 1138px) {
     header {
         
         .intro {
-            height: 80vh;
+            height: 60vh;
 
             .intro-text {
                 top: 50%;
@@ -102,8 +103,9 @@ and (max-device-width : 1138px) {
                 }
 
                 h1 {
-                    font-size: map-get(config.$h1, "mobile");
+                    font-size: map-get(config.$h1, "normal");
                     width: 100%;
+                    text-align: center;
                 }
         
                 span {
@@ -118,7 +120,7 @@ and (max-device-width : 1138px) {
     main {
         
         .projects {
-            margin-top: 80vh;
+            margin-top: 60vh;
 
             .projects-collage {
                 grid-template-columns: repeat(1, 1fr);
@@ -142,19 +144,15 @@ and (max-device-width : 1138px) {
                             flex-direction: column;
                             width: 100%;
 
+                            h2 {
+                                font-size: map-get(config.$h1, "normal");
+                            }
+                            p {
+                                font-size: map-get(config.$h2, "normal");
+                            }
                         }        
                     }
                 }
-            }
-        }
-
-        /* CONTACT */
-
-        .contact {
-            
-            .button-slide {
-                
-                min-width: 16rem;
             }
         }
     }
