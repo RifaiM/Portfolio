@@ -98,7 +98,7 @@ and (max-device-width : 1138px) {
     header {
         
         .intro {
-            height: 60vh;
+            height: 80vh;
 
             .intro-text {
                 top: 50%;
@@ -127,7 +127,7 @@ and (max-device-width : 1138px) {
     main {
         
         .projects {
-            margin-top: 60vh;
+            margin-top: 80vh;
 
             .projects-collage {
                 grid-template-columns: repeat(1, 1fr);
