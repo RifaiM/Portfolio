@@ -1,0 +1,223 @@
+@use './config';
+
+html,
+body {
+    box-sizing: border-box;
+    height: 100%;
+    font-family: config.$font-stack;
+    margin: 0;
+    padding: 0;
+}
+
+/* GLOBAL STYLE */
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* HEADER */
+
+header {
+    
+    .intro {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+        height: 80vh;
+        
+        .intro-text {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+
+            .hi {
+                max-width: 72rem;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 0 2rem;
+            }
+
+            h1 {
+                font-weight: map-get(config.$font-weights, "semiBold");
+                font-size: map-get(config.$h1, "normal");
+                color: config.$black;
+                letter-spacing: .15rem;
+                line-height: 1.5;
+                width: 50%;
+            }
+    
+            span {
+                color: config.$blue;
+            }
+        }
+    
+    }
+}
+
+
+/* MAIN */
+
+main {
+    
+    .projects {
+        margin-top: 80vh;
+        position: relative;
+
+        .projects-collage {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            .project-one,
+            .project-two,
+            .project-three,
+            .project-four {
+                width: 100%;
+                height: 100%;
+
+                .project-figure {
+                    width: 100%;
+                    margin: 0 auto;
+                    position: relative;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        display: block;
+                    }
+
+                    .project-overlay {
+                        position: absolute;
+                        top: 0;
+                        height: 100%;
+                        width: 100%;
+                        background: rgba(0, 0, 0, 0.5);
+                        transition: .7s ease;
+                        opacity: 0;
+                        text-align: center;
+                    }
+
+                    .project-text {
+                        color: config.$white;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        opacity: 0;
+                        text-align: center;
+                    }
+
+                    &:hover {
+
+                        .project-overlay {
+                            opacity: 1;
+                        }
+
+                        .project-text {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* CONTACT */
+
+    .contact {
+        padding-top: 8rem;
+        text-align: center;
+
+        .button-slide {
+            position: relative;
+            display: inline-block;
+            outline: none;
+            background-color: config.$blue;
+            letter-spacing: .15rem;
+            line-height: 5rem;
+            min-width: 22rem;
+            overflow: hidden;
+            transition: 0.3s;
+
+            span {
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+                transition: inherit;
+                font-size: 1.3rem;
+                color: config.$white;
+            }
+
+            &::before {
+                position: absolute;
+                left: 0;
+                top: 100%;
+                height: 100%;
+                width: 100%;
+                transition: inherit;
+                content: attr(data-hover);
+                color: config.$blue;
+            }
+
+            &:hover,
+            &:focus {
+                background-color: config.$white;
+            }
+
+            &:hover span,
+            &:focus span{
+                transform: translateY(-100%);
+            }
+
+            &:hover::before,
+            &:focus::before {
+                top: 0;
+            }
+
+        }
+    }
+}
+
+/* FOOTER */
+
+footer {
+    padding: 6rem 0 3rem;
+
+    .container {
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+
+            li {  
+                
+                &:nth-child(2)::before,
+                &:nth-child(2)::after {
+                    content: "|";
+                    padding: 0 1rem;
+                    color: config.$grey1;
+                }
+
+                a {
+                    color: config.$grey1;
+
+                    &:hover {
+                        color: config.$black;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+@import './mobile';

@@ -1,0 +1,56 @@
+/* Smartphones (portrait and landscape) ----------- */
+
+@media only screen
+and (min-device-width : 240px)
+and (max-device-width : 667px) {
+
+    /* HEADER */
+
+    header {
+        
+        .intro {
+                   
+            .intro-text {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                .hi {
+                    padding: 0 1rem;
+                }
+
+                h1 {
+                    font-size: map-get(config.$h1, "mobile");
+                    width: 100%;
+                }
+        
+                span {
+                    color: config.$blue;
+                }
+            }     
+        }
+    }
+
+    /* MAIN */
+
+    main {
+        
+        .projects {
+
+            .projects-collage {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        /* CONTACT */
+
+        .contact {
+            
+            .button-slide {
+                
+                min-width: 16rem;
+            }
+        }
+    }
+}
+

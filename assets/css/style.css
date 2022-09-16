@@ -1,0 +1,217 @@
+html,
+body {
+  box-sizing: border-box;
+  height: 100%;
+  font-family: "Work Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* GLOBAL STYLE */
+ul, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* HEADER */
+header .intro {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  height: 80vh;
+}
+header .intro .intro-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+header .intro .intro-text .hi {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+}
+header .intro .intro-text h1 {
+  font-weight: 600;
+  font-size: 42px;
+  color: #0E1111;
+  letter-spacing: 0.15rem;
+  line-height: 1.5;
+  width: 50%;
+}
+header .intro .intro-text span {
+  color: #2962FF;
+}
+
+/* MAIN */
+main {
+  /* CONTACT */
+}
+main .projects {
+  margin-top: 80vh;
+  position: relative;
+}
+main .projects .projects-collage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+main .projects .projects-collage .project-one,
+main .projects .projects-collage .project-two,
+main .projects .projects-collage .project-three,
+main .projects .projects-collage .project-four {
+  width: 100%;
+  height: 100%;
+}
+main .projects .projects-collage .project-one .project-figure,
+main .projects .projects-collage .project-two .project-figure,
+main .projects .projects-collage .project-three .project-figure,
+main .projects .projects-collage .project-four .project-figure {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+main .projects .projects-collage .project-one .project-figure img,
+main .projects .projects-collage .project-two .project-figure img,
+main .projects .projects-collage .project-three .project-figure img,
+main .projects .projects-collage .project-four .project-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+main .projects .projects-collage .project-one .project-figure .project-overlay,
+main .projects .projects-collage .project-two .project-figure .project-overlay,
+main .projects .projects-collage .project-three .project-figure .project-overlay,
+main .projects .projects-collage .project-four .project-figure .project-overlay {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  transition: 0.7s ease;
+  opacity: 0;
+  text-align: center;
+}
+main .projects .projects-collage .project-one .project-figure .project-text,
+main .projects .projects-collage .project-two .project-figure .project-text,
+main .projects .projects-collage .project-three .project-figure .project-text,
+main .projects .projects-collage .project-four .project-figure .project-text {
+  color: #FBFAF5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  text-align: center;
+}
+main .projects .projects-collage .project-one .project-figure:hover .project-overlay,
+main .projects .projects-collage .project-two .project-figure:hover .project-overlay,
+main .projects .projects-collage .project-three .project-figure:hover .project-overlay,
+main .projects .projects-collage .project-four .project-figure:hover .project-overlay {
+  opacity: 1;
+}
+main .projects .projects-collage .project-one .project-figure:hover .project-text,
+main .projects .projects-collage .project-two .project-figure:hover .project-text,
+main .projects .projects-collage .project-three .project-figure:hover .project-text,
+main .projects .projects-collage .project-four .project-figure:hover .project-text {
+  opacity: 1;
+}
+main .contact {
+  padding-top: 8rem;
+  text-align: center;
+}
+main .contact .button-slide {
+  position: relative;
+  display: inline-block;
+  outline: none;
+  background-color: #2962FF;
+  letter-spacing: 0.15rem;
+  line-height: 5rem;
+  min-width: 22rem;
+  overflow: hidden;
+  transition: 0.3s;
+}
+main .contact .button-slide span {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  transition: inherit;
+  font-size: 1.3rem;
+  color: #FBFAF5;
+}
+main .contact .button-slide::before {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  height: 100%;
+  width: 100%;
+  transition: inherit;
+  content: attr(data-hover);
+  color: #2962FF;
+}
+main .contact .button-slide:hover, main .contact .button-slide:focus {
+  background-color: #FBFAF5;
+}
+main .contact .button-slide:hover span, main .contact .button-slide:focus span {
+  transform: translateY(-100%);
+}
+main .contact .button-slide:hover::before, main .contact .button-slide:focus::before {
+  top: 0;
+}
+
+/* FOOTER */
+footer {
+  padding: 6rem 0 3rem;
+}
+footer .container ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+footer .container ul li:nth-child(2)::before, footer .container ul li:nth-child(2)::after {
+  content: "|";
+  padding: 0 1rem;
+  color: #A4B7B4;
+}
+footer .container ul li a {
+  color: #A4B7B4;
+}
+footer .container ul li a:hover {
+  color: #0E1111;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 240px) and (max-device-width: 667px) {
+  /* HEADER */
+  header .intro .intro-text {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  header .intro .intro-text .hi {
+    padding: 0 1rem;
+  }
+  header .intro .intro-text h1 {
+    font-size: 30px;
+    width: 100%;
+  }
+  header .intro .intro-text span {
+    color: #2962FF;
+  }
+  /* MAIN */
+  main {
+    /* CONTACT */
+  }
+  main .projects .projects-collage {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  main .contact .button-slide {
+    min-width: 16rem;
+  }
+}/*# sourceMappingURL=style.css.map */
