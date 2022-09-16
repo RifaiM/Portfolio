@@ -237,4 +237,56 @@ main .projects .projects-collage .project-four .project-figure .project-text {
   main .contact .button-slide {
     min-width: 16rem;
   }
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 712px) and (max-device-width: 1138px) {
+  /* HEADER */
+  header .intro {
+    height: 80vh;
+  }
+  header .intro .intro-text {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  header .intro .intro-text .hi {
+    padding: 0 1rem;
+  }
+  header .intro .intro-text h1 {
+    font-size: 32px;
+    width: 100%;
+  }
+  header .intro .intro-text span {
+    color: #2962FF;
+  }
+  /* MAIN */
+  main {
+    /* CONTACT */
+  }
+  main .projects {
+    margin-top: 80vh;
+  }
+  main .projects .projects-collage {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  main .projects .projects-collage .project-one .project-figure .project-overlay,
+main .projects .projects-collage .project-two .project-figure .project-overlay,
+main .projects .projects-collage .project-three .project-figure .project-overlay,
+main .projects .projects-collage .project-four .project-figure .project-overlay {
+    background: rgba(0, 0, 0, 0.4);
+    transition: 0.7s ease;
+    opacity: 1;
+  }
+  main .projects .projects-collage .project-one .project-figure .project-text,
+main .projects .projects-collage .project-two .project-figure .project-text,
+main .projects .projects-collage .project-three .project-figure .project-text,
+main .projects .projects-collage .project-four .project-figure .project-text {
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  main .contact .button-slide {
+    min-width: 16rem;
+  }
 }/*# sourceMappingURL=style.css.map */
