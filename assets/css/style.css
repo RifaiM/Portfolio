@@ -22,7 +22,7 @@ header .intro {
   top: 0;
   width: 100%;
   z-index: -1;
-  height: 80vh;
+  height: 100vh;
 }
 header .intro .intro-text {
   position: absolute;
@@ -53,7 +53,7 @@ main {
   /* CONTACT */
 }
 main .projects {
-  margin-top: 80vh;
+  margin-top: 100vh;
   position: relative;
 }
 main .projects .projects-collage {
@@ -189,9 +189,6 @@ footer .container ul li a:hover {
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 240px) and (max-device-width: 667px) {
   /* HEADER */
-  header .intro {
-    height: 60vh;
-  }
   header .intro .intro-text {
     top: 50%;
     left: 50%;
@@ -211,9 +208,6 @@ footer .container ul li a:hover {
   /* MAIN */
   main {
     /* CONTACT */
-  }
-  main .projects {
-    margin-top: 60vh;
   }
   main .projects .projects-collage {
     grid-template-columns: repeat(1, 1fr);
@@ -248,9 +242,6 @@ main .projects .projects-collage .project-four .project-figure .project-text h2 
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 712px) and (max-device-width: 1138px) {
   /* HEADER */
-  header .intro {
-    height: 60vh;
-  }
   header .intro .intro-text {
     top: 50%;
     left: 50%;
@@ -268,9 +259,6 @@ main .projects .projects-collage .project-four .project-figure .project-text h2 
     color: #2962FF;
   }
   /* MAIN */
-  main .projects {
-    margin-top: 60vh;
-  }
   main .projects .projects-collage {
     grid-template-columns: repeat(1, 1fr);
   }
