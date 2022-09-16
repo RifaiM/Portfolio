@@ -21,7 +21,7 @@ header .intro {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 90vh;
+  height: 80vh;
 }
 header .intro .intro-text {
   position: absolute;
@@ -52,7 +52,7 @@ main {
   /* CONTACT */
 }
 main .projects {
-  margin-top: 90vh;
+  margin-top: 80vh;
   position: relative;
 }
 main .projects .projects-collage {
