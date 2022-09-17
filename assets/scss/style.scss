@@ -5,16 +5,10 @@ body {
     box-sizing: border-box;
     height: 100%;
     font-family: config.$font-stack;
-    margin: 0;
-    padding: 0;
+
 }
 
 /* GLOBAL STYLE */
-
-ul, li {
-    list-style: none;
-}
-
 a {
     text-decoration: none;
 }
@@ -112,6 +106,15 @@ main {
                         transform: translate(-50%, -50%);
                         opacity: 0;
                         text-align: center;
+
+                        h2 {
+                            padding: 10px 0;
+                            font-size: map-get(config.$h2, "normal");
+                        }
+                        p {
+                            padding: 10px 0;
+                            font-size: config.$p;
+                        }
                     }
 
                     &:hover {

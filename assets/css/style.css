@@ -3,15 +3,9 @@ body {
   box-sizing: border-box;
   height: 100%;
   font-family: "Work Sans", sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
 /* GLOBAL STYLE */
-ul, li {
-  list-style: none;
-}
-
 a {
   text-decoration: none;
 }
@@ -107,6 +101,20 @@ main .projects .projects-collage .project-four .project-figure .project-text {
   transform: translate(-50%, -50%);
   opacity: 0;
   text-align: center;
+}
+main .projects .projects-collage .project-one .project-figure .project-text h2,
+main .projects .projects-collage .project-two .project-figure .project-text h2,
+main .projects .projects-collage .project-three .project-figure .project-text h2,
+main .projects .projects-collage .project-four .project-figure .project-text h2 {
+  padding: 10px 0;
+  font-size: 30px;
+}
+main .projects .projects-collage .project-one .project-figure .project-text p,
+main .projects .projects-collage .project-two .project-figure .project-text p,
+main .projects .projects-collage .project-three .project-figure .project-text p,
+main .projects .projects-collage .project-four .project-figure .project-text p {
+  padding: 10px 0;
+  font-size: 16px;
 }
 main .projects .projects-collage .project-one .project-figure:hover .project-overlay,
 main .projects .projects-collage .project-two .project-figure:hover .project-overlay,
@@ -279,5 +287,56 @@ main .projects .projects-collage .project-two .project-figure .project-text p,
 main .projects .projects-collage .project-three .project-figure .project-text p,
 main .projects .projects-collage .project-four .project-figure .project-text p {
     font-size: 30px;
+  }
+}
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (max-width: 768px) {
+  /* HEADER */
+  header .intro .intro-text {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  header .intro .intro-text .hi {
+    padding: 0 1rem;
+  }
+  header .intro .intro-text h1 {
+    font-size: 32px;
+    width: 100%;
+    text-align: center;
+  }
+  /* MAIN */
+  main {
+    /* CONTACT */
+  }
+  main .projects .projects-collage {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  main .projects .projects-collage .project-one .project-figure .project-overlay,
+main .projects .projects-collage .project-two .project-figure .project-overlay,
+main .projects .projects-collage .project-three .project-figure .project-overlay,
+main .projects .projects-collage .project-four .project-figure .project-overlay {
+    background: rgba(0, 0, 0, 0.4);
+    transition: 0.7s ease;
+    opacity: 1;
+  }
+  main .projects .projects-collage .project-one .project-figure .project-text,
+main .projects .projects-collage .project-two .project-figure .project-text,
+main .projects .projects-collage .project-three .project-figure .project-text,
+main .projects .projects-collage .project-four .project-figure .project-text {
+    opacity: 1;
+    width: 100%;
+  }
+  main .projects .projects-collage .project-one .project-figure .project-text h2,
+main .projects .projects-collage .project-two .project-figure .project-text h2,
+main .projects .projects-collage .project-three .project-figure .project-text h2,
+main .projects .projects-collage .project-four .project-figure .project-text h2 {
+    font-size: 32px;
+  }
+  main .contact .button-slide {
+    min-width: 16rem;
   }
 }/*# sourceMappingURL=style.css.map */
