@@ -149,13 +149,8 @@ and (max-device-width : 1138px) {
 }
 
   
-  /* 
-    ##Device = Laptops, Desktops
-    ##Screen = B/w 1025px to 1280px
-  */
-  
-  @media (max-width: 768px) {
-    
+@media (max-width: 768px) {
+
     /* HEADER */
 
     header {
@@ -186,7 +181,6 @@ and (max-device-width : 1138px) {
         
         .projects {
             
-
             .projects-collage {
                 grid-template-columns: repeat(1, 1fr);
 
@@ -228,6 +222,6 @@ and (max-device-width : 1138px) {
             }
         }
     }
-    
-  }
+
+}
 
