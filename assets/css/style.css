@@ -184,7 +184,7 @@ footer .container ul {
 }
 footer .container ul li:nth-child(2)::before, footer .container ul li:nth-child(2)::after, footer .container ul li:nth-child(3)::after {
   content: "|";
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   color: #A4B7B4;
 }
 footer .container ul li a {

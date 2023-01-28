@@ -206,7 +206,7 @@ footer {
                 &:nth-child(2)::after,
                 &:nth-child(3)::after {
                     content: "|";
-                    padding: 0 1rem;
+                    padding: 0 0.5rem;
                     color: config.$grey1;
                 }
 
