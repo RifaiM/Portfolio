@@ -203,7 +203,9 @@ footer {
             li {  
                 
                 &:nth-child(2)::before,
-                &:nth-child(2)::after {
+                &:nth-child(2)::after,
+                &:nth-child(3)::before,
+                &:nth-child(3)::after {
                     content: "|";
                     padding: 0 1rem;
                     color: config.$grey1;
