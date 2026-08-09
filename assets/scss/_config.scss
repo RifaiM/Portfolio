@@ -1,0 +1,30 @@
+$font-stack: 'Work Sans', sans-serif;
+
+$blue: #2962FF;
+$white: #FBFAF5;
+$grey1: #A4B7B4;
+$grey2: #EAF3F0;
+$black: #0E1111;
+
+$p: 16px;
+
+$h1: (
+    "normal": 42px,
+    "mobile": 32px
+);
+
+$h2: (
+    "normal": 30px,
+    "mobile": 20px
+);
+
+$font-weights: (
+    "extraLight": 200,
+    "light": 300,
+    "regular": 400,
+    "medium": 500,
+    "semiBold": 600,
+    "bold": 700,
+    "extraBold": 800
+);
+
