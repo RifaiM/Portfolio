@@ -2,118 +2,476 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Mochammad Rifai — Software Developer & Web Engineer</title>
+    <meta name="description" content="Portfolio of Mochammad Rifai — Software Developer based in West Jakarta, Indonesia. Building fast, privacy-first web apps, real-time audio rooms, and developer tools.">
+    <meta name="keywords" content="Mochammad Rifai, FilesSwift, Emailnya, Resonia, DevDojo, Web Developer, Software Engineer, Jakarta, React, Next.js, Astro, Client-Side Apps">
+    <meta name="author" content="Mochammad Rifai">
 
-    <!--Google Fonts-->
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rifaim.github.io/">
+    <meta property="og:title" content="Mochammad Rifai — Software Developer & Web Engineer">
+    <meta property="og:description" content="Building fast, privacy-first web apps, real-time collaborative tools, and visual email engines.">
+    <meta property="og:image" content="./assets/images/fileswift-preview.jpg">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 
-    <!--jQuery-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <!--CSS-->
-    <link rel="stylesheet" href="./assets/css/reset.css" type="text/css">
-    <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
-
-    <title>My Name is Rifai</title>
-    <meta name="description" content="Mochammad Rifai Portofolio">
-    <meta name="keywords" content="About Mochammad Rifai, Mochammad Rifai Projects, Mochammad Rifai Contacts">
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
 
-    <header>
-        <div class="intro">
-            <div class="intro-text">
-                <div class="hi">
-                    <h1>Hi! 👋  — My name is <span>Rifai</span>, I'm a <span>developer</span> 👨🏻&zwj;💻 located in West Jakarta, Indonesia.</h1>
+    <!-- Background Glow Effects -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar-container">
+        <nav class="navbar">
+            <a href="#" class="nav-brand">
+                <span class="brand-dot"></span>
+                <span class="brand-name">Rifai<span class="brand-accent">.dev</span></span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark / Light Theme" title="Toggle Theme">
+                    <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+
+                <div class="nav-status">
+                    <span class="status-ping"></span>
+                    <span class="status-text">Available for projects</span>
                 </div>
             </div>
-        </div>
+        </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
-        <!--PROJECTS SECTION-->
-        <div class="projects">
-            <div class="projects-collage">
-                <!--PROJECT ONE-->
-                <div class="project-one">
-                    <a href="https://rifaim.github.io/Dapur_mamizey/" class="project-item">
-                        <figure class="project-figure">
-                            <div class="project-overlay"></div>
-                            <img src="https://images.unsplash.com/photo-1491931648265-8f68c1dc731b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=717ea0ca5595686d6311578a5b010861&auto=format&fit=crop&w=1050&q=80" alt="">
-                            <figcaption class="project-text">
-                                <h2>Project One</h2>
-                                <p>Product Showcase Website</p>
-                            </figcaption>
-                        </figure>
-                    </a>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge reveal">
+                        <span class="badge-icon">👋</span>
+                        <span>Hello world, I'm <strong>Mochammad Rifai</strong></span>
+                    </div>
+
+                    <h1 class="hero-title reveal">
+                        Building <span class="text-gradient">fast, privacy-first</span> web apps & interactive tools.
+                    </h1>
+
+                    <p class="hero-subtitle reveal">
+                        Software Developer located in <strong>West Jakarta, Indonesia 🇮🇩</strong>. Crafting client-side utility suites, real-time collaborative media platforms, and high-impact web software with zero friction.
+                    </p>
+
+                    <div class="hero-tags reveal">
+                        <span class="tag-pill">Next.js 16</span>
+                        <span class="tag-pill">Astro</span>
+                        <span class="tag-pill">TypeScript</span>
+                        <span class="tag-pill">React 19</span>
+                        <span class="tag-pill">Supabase</span>
+                        <span class="tag-pill">Cloudflare Workers</span>
+                        <span class="tag-pill">FFmpeg WASM</span>
+                        <span class="tag-pill">Tailwind CSS</span>
+                    </div>
+
+                    <div class="hero-actions reveal">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>Explore Selected Work</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M12 6v12"/></svg>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span>Get In Touch</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                        </a>
+                    </div>
                 </div>
-                <!--PROJECT TWO-->
-                <div class="project-two">
-                    <a href="https://invitespark.infinityfree.me/" class="project-item">
-                        <figure class="project-figure">
-                            <div class="project-overlay"></div>
-                            <img src="https://images.unsplash.com/photo-1515051124667-90dabc5aff59?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=1050&w=870" alt="">
-                            <figcaption class="project-text">
-                                <h2>Project Two</h2>
-                                <p>Online Wedding Invitation</p>
-                            </figcaption>
-                        </figure>
-                    </a>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-eyebrow">
+                        <span class="eyebrow-line"></span>
+                        <span>FEATURED WORK</span>
+                    </div>
+                    <h2 class="section-title">Selected Projects & Applications</h2>
+                    <p class="section-description">
+                        Real-world software products designed and engineered with a focus on client-side privacy, zero monthly subscription walls, and high-performance Web APIs.
+                    </p>
                 </div>
-                <!--PROJECT THREE-->
-                <div class="project-three">
-                    <a href="https://rifaim.github.io/Landing-page_Sekolah-pintar/" class="project-item">
-                        <figure class="project-figure">
-                            <div class="project-overlay"></div>
-                            <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5eb27a51db4fda32656d35b5e6b93574&auto=format&fit=crop&w=1050&q=80" alt="">
-                            <figcaption class="project-text">
-                                <h2>Project Three</h2>
-                                <p>Landing Page Learning Platform</p>
-                            </figcaption>
-                        </figure>
-                    </a>
+
+                <div class="projects-grid">
+                    
+                    <!-- PROJECT ONE: FilesSwift -->
+                    <article class="project-card reveal">
+                        <div class="project-media">
+                            <div class="media-frame">
+                                <img src="./assets/images/fileswift-preview.jpg" alt="FilesSwift Web App Preview" loading="lazy">
+                                <div class="media-overlay"></div>
+                            </div>
+                            <div class="project-badge-top">Project 01</div>
+                        </div>
+
+                        <div class="project-info">
+                            <div class="project-category">PRIVACY-FIRST FILE SUITE</div>
+                            <h3 class="project-title">
+                                <a href="https://fileswift.app" target="_blank" rel="noopener noreferrer">
+                                    FilesSwift <span class="domain-tag">fileswift.app</span>
+                                </a>
+                            </h3>
+                            <p class="project-tagline">100% In-Browser File Converter & Utility Suite</p>
+                            <p class="project-summary">
+                                A suite of 39+ offline file converters, PDF manipulators, and video utilities built on the core principle: <em>"Your files never leave your device."</em> Runs entirely inside client browser memory using WebAssembly & JS with $0 server processing costs.
+                            </p>
+
+                            <ul class="project-highlights">
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                    100% Client-Side Privacy (Zero Server Uploads)
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                                    39+ PDF, Image, Video & Developer Tools
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                    Dual-Language Support (English / Indonesian)
+                                </li>
+                            </ul>
+
+                            <div class="project-tech-stack">
+                                <span class="tech-tag">Astro</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">FFmpeg WASM</span>
+                                <span class="tech-tag">Tailwind CSS</span>
+                            </div>
+
+                            <div class="project-action">
+                                <a href="https://fileswift.app" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                                    <span>Visit fileswift.app</span>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT TWO: Emailnya -->
+                    <article class="project-card reveal">
+                        <div class="project-media">
+                            <div class="media-frame">
+                                <img src="./assets/images/emailnya-preview.jpg" alt="Emailnya Web App Preview" loading="lazy">
+                                <div class="media-overlay"></div>
+                            </div>
+                            <div class="project-badge-top">Project 02</div>
+                        </div>
+
+                        <div class="project-info">
+                            <div class="project-category">VISUAL EMAIL MARKETING</div>
+                            <h3 class="project-title">
+                                <a href="https://emailnya.com" target="_blank" rel="noopener noreferrer">
+                                    Emailnya <span class="domain-tag">emailnya.com</span>
+                                </a>
+                            </h3>
+                            <p class="project-tagline">Visual Newsletter Builder & Campaign Engine</p>
+                            <p class="project-summary">
+                                A free visual email marketing platform designed to build responsive email templates without subscription costs. Features multi-format export (HTML, MJML, React Email) and a companion 1-click Gmail injection Chrome Extension.
+                            </p>
+
+                            <ul class="project-highlights">
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    Visual Builder + Multi-Format Exporter
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                    1-Click Gmail Injection Chrome Extension
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                                    Cloudflare R2 Storage & D1 Analytics Worker
+                                </li>
+                            </ul>
+
+                            <div class="project-tech-stack">
+                                <span class="tech-tag">Next.js 16</span>
+                                <span class="tech-tag">React 19</span>
+                                <span class="tech-tag">Cloudflare Workers</span>
+                                <span class="tech-tag">Chrome Extension MV3</span>
+                            </div>
+
+                            <div class="project-action">
+                                <a href="https://emailnya.com" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                                    <span>Visit emailnya.com</span>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT THREE: Resonia -->
+                    <article class="project-card reveal">
+                        <div class="project-media">
+                            <div class="media-frame">
+                                <img src="./assets/images/resonia-preview.jpg" alt="Resonia Web App Preview" loading="lazy">
+                                <div class="media-overlay"></div>
+                            </div>
+                            <div class="project-badge-top">Project 03</div>
+                        </div>
+
+                        <div class="project-info">
+                            <div class="project-category">REAL-TIME AUDIO ROOMS</div>
+                            <h3 class="project-title">
+                                <a href="https://resonia.app" target="_blank" rel="noopener noreferrer">
+                                    Resonia <span class="domain-tag">resonia.app</span>
+                                </a>
+                            </h3>
+                            <p class="project-tagline">Collaborative Synchronized Music & Audio Listening</p>
+                            <p class="project-summary">
+                                A real-time audio web app where hosts stream synchronized audio to listeners in shared rooms. Features client-side drift correction, live chat threading, presence awareness, interactive waveform scrubber, and auto-cleanup.
+                            </p>
+
+                            <ul class="project-highlights">
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                                    Synchronized Multi-User Audio Playback
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                    Live Chat Threading & Realtime Presence
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5v14M22 8v8M7 8v8M2 10v4"/></svg>
+                                    Interactive Waveform Scrubber & Lock-Screen Controls
+                                </li>
+                            </ul>
+
+                            <div class="project-tech-stack">
+                                <span class="tech-tag">Next.js App Router</span>
+                                <span class="tech-tag">Supabase Realtime</span>
+                                <span class="tech-tag">Cloudflare R2</span>
+                                <span class="tech-tag">Web Audio API</span>
+                            </div>
+
+                            <div class="project-action">
+                                <a href="https://resonia.app" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                                    <span>Visit resonia.app</span>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT FOUR: CodeRoots Dojo -->
+                    <article class="project-card reveal">
+                        <div class="project-media">
+                            <div class="media-frame">
+                                <img src="./assets/images/devdojo-preview.jpg" alt="CodeRoots Dojo Web App Preview" loading="lazy">
+                                <div class="media-overlay"></div>
+                            </div>
+                            <div class="project-badge-top">Project 04</div>
+                        </div>
+
+                        <div class="project-info">
+                            <div class="project-category">INTERACTIVE LEARNING</div>
+                            <h3 class="project-title">
+                                <a href="https://coderoots-dojo.vercel.app" target="_blank" rel="noopener noreferrer">
+                                    CodeRoots Dojo <span class="domain-tag">coderoots-dojo.vercel.app</span>
+                                </a>
+                            </h3>
+                            <p class="project-tagline">Interactive Web Evolution & Code Learning Platform</p>
+                            <p class="project-summary">
+                                An interactive web development learning platform featuring a timeline of web browser evolution, knowledge quizzes, fundamental HTML/CSS/JS concept cards, and hands-on coding lessons.
+                            </p>
+
+                            <ul class="project-highlights">
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    Browser Evolution Timeline & Interactive Quiz Engine
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    HTML, CSS & JavaScript Core Concept Modules
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                                    Hands-On First Website Building Lessons
+                                </li>
+                            </ul>
+
+                            <div class="project-tech-stack">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">HTML5 / CSS3</span>
+                                <span class="tech-tag">SweetAlert2</span>
+                                <span class="tech-tag">Vercel</span>
+                            </div>
+
+                            <div class="project-action">
+                                <a href="https://coderoots-dojo.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                                    <span>Launch CodeRoots Dojo</span>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
-                <!--PROJECT FOUR-->
-                <div class="project-four">
-                    <!--<a href="https://invitationforyou.site/?to/you/" class="project-item">--> <!--<a href="javascript:void(0)" class="project-item">-->
-                    <a href="https://devdojo-id.vercel.app/" class="project-item">
-                        <figure class="project-figure">
-                            <div class="project-overlay"></div>
-                            <img src="https://images.unsplash.com/photo-1494366222322-387658a1a976?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=24100980ab1a60783e1c847b7965bd11&auto=format&fit=crop&w=1051&q=80" alt="">
-                            <figcaption class="project-text">
-                                <h2>Project Four</h2>
-                                <p>Code Learning App</p>
-                            </figcaption>
-                        </figure>
+            </div>
+        </section>
+
+        <!-- About & Engineering Philosophy Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-main reveal">
+                        <div class="section-eyebrow">
+                            <span class="eyebrow-line"></span>
+                            <span>ENGINEERING PHILOSOPHY</span>
+                        </div>
+                        <h2 class="section-title">Built with intent, privacy, and zero compromise.</h2>
+                        <p class="about-text">
+                            Ever since I started building for the web in 2020, my guiding principle has been creating software that is genuinely useful, respectful of user privacy, and fast.
+                        </p>
+                        <p class="about-text">
+                            Instead of relying on heavy third-party servers and intrusive tracking scripts, I advocate for client-side Web APIs, WebAssembly, edge computing, and clean frontend architectures that empower users directly inside their browsers.
+                        </p>
+
+                        <div class="about-stats">
+                            <div class="stat-card">
+                                <span class="stat-number">39+</span>
+                                <span class="stat-label">Client-Side Tools</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-number">0$</span>
+                                <span class="stat-label">Processing Server Cost</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Privacy First</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-cards reveal">
+                        <div class="skill-card">
+                            <div class="skill-icon">🔒</div>
+                            <h4>Client-Side & Offline First</h4>
+                            <p>Processing files, video, and audio directly in browser memory via JS/WASM for ultimate data privacy.</p>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">⚡</div>
+                            <h4>Edge & Real-Time Tech</h4>
+                            <p>Leveraging Supabase Realtime, Cloudflare Workers, R2 Storage, and Next.js 16 App Router for sub-millisecond response times.</p>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">🎨</div>
+                            <h4>Intuitive & Clean UX</h4>
+                            <p>Designing interfaces that feel responsive, tactile, accessible, and delightful to interact with.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-box reveal">
+                    <div class="contact-header">
+                        <span class="contact-badge">GET IN TOUCH</span>
+                        <h2 class="contact-title">Let's build something extraordinary together.</h2>
+                        <p class="contact-subtitle">
+                            Have a project in mind, an opportunity to discuss, or just want to connect? My inbox is always open.
+                        </p>
+                    </div>
+
+                    <div class="contact-interactive">
+                        <div class="email-display-card">
+                            <span class="email-address">rifaialc@gmail.com</span>
+                            <button id="copy-email-btn" class="copy-btn" aria-label="Copy email address">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                <span>Copy Email</span>
+                            </button>
+                        </div>
+
+                        <div class="contact-or">or</div>
+
+                        <a href="mailto:rifaialc@gmail.com" class="btn btn-primary btn-large">
+                            <span>Talk To Me 👌</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </a>
+                    </div>
+
+                    <!-- Toast Notification for Copy -->
+                    <div id="toast" class="toast-notification">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Copied to clipboard!</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-name">Rifai<span class="brand-accent">.dev</span></span>
+                    <p class="footer-tagline">Software Developer based in West Jakarta, Indonesia.</p>
+                </div>
+
+                <div class="footer-socials">
+                    <a href="https://github.com/rifaim" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.youtube.com/@webeffectsenthusiast" target="_blank" rel="noopener noreferrer" class="social-link" title="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        <span>YouTube</span>
+                    </a>
+                    <a href="https://www.instagram.com/mchrifai" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        <span>Instagram</span>
                     </a>
                 </div>
             </div>
-        </div>
 
-        <!--REACH ME SECTION-->
-        <div class="contact">
-            <a href="mailto:rifaialc@gmail.com" class="button-slide" data-hover="rifaialc@gmail.com">
-                <span>Talk To Me 👌</span>
-            </a>
-        </div>
-    </main>
-
-    <!--FOOTER-->
-    <footer>
-        <div class="container">
-            <ul>
-                <li><a href="https://www.instagram.com/raaiimm_/">Instagram</a></li>
-                <li><a href="#">GitHub</a></li>
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="https://www.youtube.com/@webeffectsenthusiast">YouTube</a></li>
-            </ul>
+            <div class="footer-bottom">
+                <div class="footer-copy">
+                    &copy; 2026 Mochammad Rifai. All rights reserved.
+                </div>
+                <div class="footer-time">
+                    <span class="time-dot"></span>
+                    <span id="local-time">Jakarta (WIB) — --:--:--</span>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- GSAP & ScrollTrigger Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Main JavaScript -->
     <script src="./assets/js/main.js"></script>
-    
 </body>
 </html>
