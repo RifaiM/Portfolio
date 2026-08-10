@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <rect width="512" height="512" rx="128" fill="#08090C"/>
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="8"/>
+  
+  <!-- Monogram R -->
+  <path d="M160 140 H270 C330 140, 360 170, 360 215 C360 260, 330 285, 270 285 H216 V370 H160 V140 Z M216 190 V235 H265 C290 235, 304 225, 304 212 C304 200, 290 190, 265 190 Z" fill="#F3F4F6"/>
+  <path d="M260 285 L350 370 H285 L205 290 Z" fill="#6366F1"/>
+  
+  <!-- Glowing Dot -->
+  <circle cx="370" cy="360" r="18" fill="#6366F1"/>
+  <circle cx="370" cy="360" r="28" fill="none" stroke="#6366F1" stroke-width="4" opacity="0.4"/>
+</svg>

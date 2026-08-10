@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08090C"/>
+      <stop offset="50%" stop-color="#0F111A"/>
+      <stop offset="100%" stop-color="#161926"/>
+    </linearGradient>
+    
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+
+    <radialGradient id="glow1" cx="20%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="rgba(99, 102, 241, 0.25)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+
+    <radialGradient id="glow2" cx="80%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="rgba(6, 182, 212, 0.15)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+  
+  <!-- Subtle Border Frame -->
+  <rect x="40" y="40" width="1120" height="550" rx="24" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2"/>
+  
+  <!-- Brand Header -->
+  <circle cx="100" cy="110" r="8" fill="#6366F1"/>
+  <text x="120" y="116" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="24" font-weight="800" letter-spacing="-0.5">Rifai<tspan fill="#6366F1">.dev</tspan></text>
+  
+  <rect x="940" y="90" width="160" height="40" rx="20" fill="rgba(16, 185, 129, 0.1)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1"/>
+  <circle cx="965" cy="110" r="5" fill="#10B981"/>
+  <text x="980" y="115" fill="#10B981" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Available</text>
+
+  <!-- Title & Subtitle -->
+  <text x="100" y="230" fill="url(#accentGrad)" font-family="system-ui, sans-serif" font-size="52" font-weight="800" letter-spacing="-1">Mochammad Rifai</text>
+  <text x="100" y="285" fill="#F3F4F6" font-family="system-ui, sans-serif" font-size="34" font-weight="700">Software Developer &amp; Web Engineer</text>
+  <text x="100" y="330" fill="#9CA3AF" font-family="system-ui, sans-serif" font-size="20" font-weight="400">Building fast, privacy-first web applications &amp; interactive digital tools.</text>
+
+  <!-- Flagship Projects Row -->
+  <g transform="translate(100, 390)">
+    <!-- Project 1 -->
+    <rect x="0" y="0" width="230" height="120" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <text x="20" y="40" fill="#6366F1" font-family="monospace" font-size="12" font-weight="600">01 / FILE SUITE</text>
+    <text x="20" y="70" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="20" font-weight="700">FilesSwift</text>
+    <text x="20" y="95" fill="#9CA3AF" font-family="monospace" font-size="13">fileswift.app</text>
+
+    <!-- Project 2 -->
+    <rect x="250" y="0" width="230" height="120" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <text x="270" y="40" fill="#6366F1" font-family="monospace" font-size="12" font-weight="600">02 / EMAIL BUILDER</text>
+    <text x="270" y="70" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="20" font-weight="700">Emailnya</text>
+    <text x="270" y="95" fill="#9CA3AF" font-family="monospace" font-size="13">emailnya.com</text>
+
+    <!-- Project 3 -->
+    <rect x="500" y="0" width="230" height="120" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <text x="520" y="40" fill="#6366F1" font-family="monospace" font-size="12" font-weight="600">03 / AUDIO ROOMS</text>
+    <text x="520" y="70" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="20" font-weight="700">Resonia</text>
+    <text x="520" y="95" fill="#9CA3AF" font-family="monospace" font-size="13">resonia.app</text>
+
+    <!-- Project 4 -->
+    <rect x="750" y="0" width="230" height="120" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <text x="770" y="40" fill="#6366F1" font-family="monospace" font-size="12" font-weight="600">04 / LEARNING</text>
+    <text x="770" y="70" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="20" font-weight="700">NoviCodes</text>
+    <text x="770" y="95" fill="#9CA3AF" font-family="monospace" font-size="13">novicodes.vercel.app</text>
+  </g>
+</svg>
