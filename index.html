@@ -31,6 +31,9 @@
 </head>
 <body>
 
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-bar" id="scroll-progress"></div>
+
     <!-- Background Glow Effects -->
     <div class="ambient-glow glow-1"></div>
     <div class="ambient-glow glow-2"></div>
@@ -413,15 +416,15 @@
 
                         <div class="about-stats">
                             <div class="stat-card">
-                                <span class="stat-number">39+</span>
+                                <span class="stat-number" data-target="39" data-suffix="+">39+</span>
                                 <span class="stat-label">In-Browser Tools Built</span>
                             </div>
                             <div class="stat-card">
-                                <span class="stat-number">0$</span>
+                                <span class="stat-number" data-target="0" data-prefix="$">$0</span>
                                 <span class="stat-label">Monthly Server Cost</span>
                             </div>
                             <div class="stat-card">
-                                <span class="stat-number">100%</span>
+                                <span class="stat-number" data-target="100" data-suffix="%">100%</span>
                                 <span class="stat-label">Privacy First</span>
                             </div>
                         </div>
