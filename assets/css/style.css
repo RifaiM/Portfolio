@@ -663,6 +663,7 @@ img {
   letter-spacing: -0.03em;
   line-height: 1.15;
   margin-bottom: 1.5rem;
+  min-height: 2.3em;
 }
 
 /* Typewriter Headline Effect */

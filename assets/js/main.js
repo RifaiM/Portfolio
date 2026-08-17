@@ -473,10 +473,11 @@ function initCard3DTilt() {
 }
 
 /**
- * 12. Typewriter Effect for Hero Headline (Reliable, Crisp & Readable)
+ * 12. Typewriter Effect with Scroll-Aware Auto-Pause (Zero Background Shifts)
  */
 function initTypewriter() {
     const textElement = document.getElementById('typewriter-text');
+    const heroSection = document.querySelector('.hero-section');
     if (!textElement) return;
 
     const phrases = [
@@ -490,6 +491,7 @@ function initTypewriter() {
     let charIndex = phrases[0].length;
     let isDeleting = false;
     let timeoutId = null;
+    let isHeroVisible = true;
 
     const TYPING_SPEED = 75;       // ms per char typed
     const DELETING_SPEED = 40;     // ms per char deleted
@@ -497,8 +499,8 @@ function initTypewriter() {
     const PAUSE_START = 450;       // ms pause before typing next word
 
     function type() {
-        if (document.hidden) {
-            timeoutId = setTimeout(type, 500);
+        // If tab is in background OR user has scrolled away from hero section, stop execution
+        if (document.hidden || !isHeroVisible) {
             return;
         }
 
@@ -528,16 +530,39 @@ function initTypewriter() {
         timeoutId = setTimeout(type, delay);
     }
 
-    // Start cycling after initial display time
+    // Scroll-Aware Observer: Pause immediately when leaving Hero, resume when returning
+    if ('IntersectionObserver' in window && heroSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const wasVisible = isHeroVisible;
+                isHeroVisible = entry.isIntersecting;
+
+                if (!isHeroVisible) {
+                    // Leaving Hero section -> freeze all typing timers immediately
+                    if (timeoutId) clearTimeout(timeoutId);
+                } else if (!wasVisible && isHeroVisible) {
+                    // Returning to Hero section -> resume typing smoothly
+                    if (timeoutId) clearTimeout(timeoutId);
+                    timeoutId = setTimeout(type, 300);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(heroSection);
+    }
+
+    // Start initial typing cycle
     timeoutId = setTimeout(() => {
         isDeleting = true;
         type();
     }, 2500);
 
+    // Pause on background browser tab
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
             if (timeoutId) clearTimeout(timeoutId);
-        } else {
+        } else if (isHeroVisible) {
+            if (timeoutId) clearTimeout(timeoutId);
             timeoutId = setTimeout(type, 500);
         }
     });
