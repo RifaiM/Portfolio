@@ -483,23 +483,45 @@ function initWordFlipper() {
     let currentIndex = 0;
     const totalWords = words.length;
 
-    // Helper to measure accurate rendered width of a word
+    // Measure exact rendered width of a word inside the hero title typography context
     function getWordWidth(element) {
+        const parent = container.parentElement || container;
         const clone = element.cloneNode(true);
         clone.style.visibility = 'hidden';
         clone.style.position = 'absolute';
         clone.style.display = 'inline-block';
         clone.style.width = 'auto';
         clone.style.transform = 'none';
-        document.body.appendChild(clone);
+        clone.style.left = '-9999px';
+        clone.style.top = '-9999px';
+        parent.appendChild(clone);
         const width = clone.getBoundingClientRect().width;
-        document.body.removeChild(clone);
+        parent.removeChild(clone);
         return width;
     }
 
-    // Set initial container width to match the first word
-    const initialWidth = getWordWidth(words[0]);
-    container.style.width = `${Math.ceil(initialWidth) + 6}px`;
+    function setContainerWidth(animate = false, targetWidth = null) {
+        const width = targetWidth !== null ? targetWidth : Math.ceil(getWordWidth(words[currentIndex])) + 14;
+        if (animate) {
+            gsap.to(container, {
+                width: width,
+                duration: 0.45,
+                ease: 'power3.inOut'
+            });
+        } else {
+            container.style.width = `${width}px`;
+        }
+    }
+
+    // Set initial width
+    setContainerWidth(false);
+
+    // Re-measure when Google Fonts finish loading
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+            setContainerWidth(false);
+        });
+    }
 
     // Initialize words in starting 3D transform states
     words.forEach((word, i) => {
@@ -519,7 +541,7 @@ function initWordFlipper() {
         const nextIndex = (currentIndex + 1) % totalWords;
         const nextWord = words[nextIndex];
 
-        const targetWidth = Math.ceil(getWordWidth(nextWord)) + 6;
+        const targetWidth = Math.ceil(getWordWidth(nextWord)) + 14;
 
         const tl = gsap.timeline();
 
@@ -569,7 +591,6 @@ function initWordFlipper() {
 
     // Handle responsive window resize
     window.addEventListener('resize', () => {
-        const currentActiveWidth = Math.ceil(getWordWidth(words[currentIndex])) + 6;
-        container.style.width = `${currentActiveWidth}px`;
+        setContainerWidth(false);
     });
 }
