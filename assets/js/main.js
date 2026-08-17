@@ -437,7 +437,7 @@ function initJakartaClock() {
         };
         const formatter = new Intl.DateTimeFormat('en-GB', options);
         const timeString = formatter.format(now);
-        timeDisplay.textContent = `Jakarta (WIB) — ${timeString}`;
+        timeDisplay.textContent = `Jakarta (WIB) — ${timeString} • UTC+7`;
     }
 
     updateTime();
@@ -473,7 +473,7 @@ function initCard3DTilt() {
 }
 
 /**
- * 12. 3D Kinetic Word Flipper (Option 1)
+ * 12. 3D Kinetic Word Flipper (Option 1 - Rock Solid & Flicker-Free)
  */
 function initWordFlipper() {
     const container = document.querySelector('.word-flipper-container');
@@ -482,6 +482,7 @@ function initWordFlipper() {
 
     let currentIndex = 0;
     const totalWords = words.length;
+    let isTransitioning = false;
 
     // Measure exact rendered width of a word inside the hero title typography context
     function getWordWidth(element) {
@@ -489,7 +490,7 @@ function initWordFlipper() {
         const clone = element.cloneNode(true);
         clone.style.visibility = 'hidden';
         clone.style.position = 'absolute';
-        clone.style.display = 'inline-block';
+        clone.style.display = 'inline-flex';
         clone.style.width = 'auto';
         clone.style.transform = 'none';
         clone.style.left = '-9999px';
@@ -501,7 +502,7 @@ function initWordFlipper() {
     }
 
     function setContainerWidth(animate = false, targetWidth = null) {
-        const width = targetWidth !== null ? targetWidth : Math.ceil(getWordWidth(words[currentIndex])) + 14;
+        const width = targetWidth !== null ? targetWidth : Math.ceil(getWordWidth(words[currentIndex])) + 16;
         if (animate) {
             gsap.to(container, {
                 width: width,
@@ -513,7 +514,15 @@ function initWordFlipper() {
         }
     }
 
-    // Set initial width
+    // Initialize all words into clean starting states
+    words.forEach((word, i) => {
+        if (i === 0) {
+            gsap.set(word, { opacity: 1, yPercent: 0, rotateX: 0 });
+        } else {
+            gsap.set(word, { opacity: 0, yPercent: 100, rotateX: -80 });
+        }
+    });
+
     setContainerWidth(false);
 
     // Re-measure when Google Fonts finish loading
@@ -523,29 +532,31 @@ function initWordFlipper() {
         });
     }
 
-    // Initialize words in starting 3D transform states
-    words.forEach((word, i) => {
-        if (i === 0) {
-            gsap.set(word, { opacity: 1, yPercent: 0, rotateX: 0 });
-        } else {
-            gsap.set(word, { opacity: 0, yPercent: 100, rotateX: -80 });
-        }
-    });
-
     let intervalId = null;
 
     function flipToNext() {
-        if (document.hidden) return;
+        if (document.hidden || isTransitioning) return;
+        isTransitioning = true;
 
         const currentWord = words[currentIndex];
         const nextIndex = (currentIndex + 1) % totalWords;
         const nextWord = words[nextIndex];
 
-        const targetWidth = Math.ceil(getWordWidth(nextWord)) + 14;
+        const targetWidth = Math.ceil(getWordWidth(nextWord)) + 16;
 
-        const tl = gsap.timeline();
+        // Position nextWord explicitly at bottom before animation begins (no immediateRender flash)
+        gsap.set(nextWord, { yPercent: 100, rotateX: -80, opacity: 0 });
 
-        // 1. Animate container width smoothly to fit new word
+        const tl = gsap.timeline({
+            onComplete: () => {
+                // Silently reset the exited word to the bottom queue for its next cycle
+                gsap.set(currentWord, { yPercent: 100, rotateX: -80, opacity: 0 });
+                currentIndex = nextIndex;
+                isTransitioning = false;
+            }
+        });
+
+        // 1. Animate container width smoothly to fit incoming word
         tl.to(container, {
             width: targetWidth,
             duration: 0.5,
@@ -557,24 +568,18 @@ function initWordFlipper() {
             yPercent: -100,
             rotateX: 80,
             opacity: 0,
-            duration: 0.55,
+            duration: 0.5,
             ease: 'power3.inOut'
         }, 0);
 
-        // 3. Flip next word IN (from bottom)
-        tl.fromTo(nextWord, 
-            { yPercent: 100, rotateX: -80, opacity: 0 },
-            {
-                yPercent: 0,
-                rotateX: 0,
-                opacity: 1,
-                duration: 0.65,
-                ease: 'power3.out'
-            },
-            0.15
-        );
-
-        currentIndex = nextIndex;
+        // 3. Flip next word IN (rotate in from bottom)
+        tl.to(nextWord, {
+            yPercent: 0,
+            rotateX: 0,
+            opacity: 1,
+            duration: 0.55,
+            ease: 'power3.out'
+        }, 0.1);
     }
 
     // Start interval cycle
