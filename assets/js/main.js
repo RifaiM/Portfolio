@@ -473,7 +473,7 @@ function initCard3DTilt() {
 }
 
 /**
- * 12. 3D Kinetic Word Flipper (Option 1 - Rock Solid & Flicker-Free)
+ * 12. Liquid Word Cycler (2D Mask & Optical Blur - Butter Smooth)
  */
 function initWordFlipper() {
     const container = document.querySelector('.word-flipper-container');
@@ -484,7 +484,7 @@ function initWordFlipper() {
     const totalWords = words.length;
     let isTransitioning = false;
 
-    // Measure exact rendered width of a word inside the hero title typography context
+    // Measure exact rendered width inside hero title typography
     function getWordWidth(element) {
         const parent = container.parentElement || container;
         const clone = element.cloneNode(true);
@@ -493,6 +493,7 @@ function initWordFlipper() {
         clone.style.display = 'inline-flex';
         clone.style.width = 'auto';
         clone.style.transform = 'none';
+        clone.style.filter = 'none';
         clone.style.left = '-9999px';
         clone.style.top = '-9999px';
         parent.appendChild(clone);
@@ -502,11 +503,11 @@ function initWordFlipper() {
     }
 
     function setContainerWidth(animate = false, targetWidth = null) {
-        const width = targetWidth !== null ? targetWidth : Math.ceil(getWordWidth(words[currentIndex])) + 16;
+        const width = targetWidth !== null ? targetWidth : Math.ceil(getWordWidth(words[currentIndex])) + 14;
         if (animate) {
             gsap.to(container, {
                 width: width,
-                duration: 0.45,
+                duration: 0.5,
                 ease: 'power3.inOut'
             });
         } else {
@@ -514,12 +515,12 @@ function initWordFlipper() {
         }
     }
 
-    // Initialize all words into clean starting states
+    // Set clean initial state for word 0 (visible, sharp, in place)
     words.forEach((word, i) => {
         if (i === 0) {
-            gsap.set(word, { opacity: 1, yPercent: 0, rotateX: 0 });
+            gsap.set(word, { opacity: 1, yPercent: 0, filter: 'blur(0px)' });
         } else {
-            gsap.set(word, { opacity: 0, yPercent: 100, rotateX: -80 });
+            gsap.set(word, { opacity: 0, yPercent: 100, filter: 'blur(4px)' });
         }
     });
 
@@ -542,55 +543,55 @@ function initWordFlipper() {
         const nextIndex = (currentIndex + 1) % totalWords;
         const nextWord = words[nextIndex];
 
-        const targetWidth = Math.ceil(getWordWidth(nextWord)) + 16;
+        const targetWidth = Math.ceil(getWordWidth(nextWord)) + 14;
 
-        // Position nextWord explicitly at bottom before animation begins (no immediateRender flash)
-        gsap.set(nextWord, { yPercent: 100, rotateX: -80, opacity: 0 });
+        // Position next word below with blur and 0 opacity
+        gsap.set(nextWord, { yPercent: 100, opacity: 0, filter: 'blur(4px)' });
 
         const tl = gsap.timeline({
             onComplete: () => {
-                // Silently reset the exited word to the bottom queue for its next cycle
-                gsap.set(currentWord, { yPercent: 100, rotateX: -80, opacity: 0 });
+                // Silently reset exited word to bottom queue
+                gsap.set(currentWord, { yPercent: 100, opacity: 0, filter: 'blur(4px)' });
                 currentIndex = nextIndex;
                 isTransitioning = false;
             }
         });
 
-        // 1. Animate container width smoothly to fit incoming word
+        // 1. Smooth container width glide
         tl.to(container, {
             width: targetWidth,
             duration: 0.5,
             ease: 'power3.inOut'
         }, 0);
 
-        // 2. Flip current word OUT (rotate up)
+        // 2. Slide current word OUT (upward + blur + fade)
         tl.to(currentWord, {
             yPercent: -100,
-            rotateX: 80,
             opacity: 0,
-            duration: 0.5,
+            filter: 'blur(4px)',
+            duration: 0.48,
             ease: 'power3.inOut'
         }, 0);
 
-        // 3. Flip next word IN (rotate in from bottom)
+        // 3. Slide next word IN (from bottom + unblur + fade in)
         tl.to(nextWord, {
             yPercent: 0,
-            rotateX: 0,
             opacity: 1,
-            duration: 0.55,
+            filter: 'blur(0px)',
+            duration: 0.52,
             ease: 'power3.out'
         }, 0.1);
     }
 
-    // Start interval cycle
-    intervalId = setInterval(flipToNext, 2800);
+    // Start interval cycle (every 3 seconds)
+    intervalId = setInterval(flipToNext, 3000);
 
     // Pause on background tab to conserve resources
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
             if (intervalId) clearInterval(intervalId);
         } else {
-            intervalId = setInterval(flipToNext, 2800);
+            intervalId = setInterval(flipToNext, 3000);
         }
     });
 
