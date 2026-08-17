@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavbarScroll();
     initScrollProgressAndActiveNav();
     initGSAPAnimations();
+    initWordFlipper();
     initStatCounters();
     initAmbientGlowFloating();
     initMagneticButtons();
@@ -468,5 +469,107 @@ function initCard3DTilt() {
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
         });
+    });
+}
+
+/**
+ * 12. 3D Kinetic Word Flipper (Option 1)
+ */
+function initWordFlipper() {
+    const container = document.querySelector('.word-flipper-container');
+    const words = document.querySelectorAll('.flip-word');
+    if (!container || words.length === 0 || typeof gsap === 'undefined') return;
+
+    let currentIndex = 0;
+    const totalWords = words.length;
+
+    // Helper to measure accurate rendered width of a word
+    function getWordWidth(element) {
+        const clone = element.cloneNode(true);
+        clone.style.visibility = 'hidden';
+        clone.style.position = 'absolute';
+        clone.style.display = 'inline-block';
+        clone.style.width = 'auto';
+        clone.style.transform = 'none';
+        document.body.appendChild(clone);
+        const width = clone.getBoundingClientRect().width;
+        document.body.removeChild(clone);
+        return width;
+    }
+
+    // Set initial container width to match the first word
+    const initialWidth = getWordWidth(words[0]);
+    container.style.width = `${Math.ceil(initialWidth) + 6}px`;
+
+    // Initialize words in starting 3D transform states
+    words.forEach((word, i) => {
+        if (i === 0) {
+            gsap.set(word, { opacity: 1, yPercent: 0, rotateX: 0 });
+        } else {
+            gsap.set(word, { opacity: 0, yPercent: 100, rotateX: -80 });
+        }
+    });
+
+    let intervalId = null;
+
+    function flipToNext() {
+        if (document.hidden) return;
+
+        const currentWord = words[currentIndex];
+        const nextIndex = (currentIndex + 1) % totalWords;
+        const nextWord = words[nextIndex];
+
+        const targetWidth = Math.ceil(getWordWidth(nextWord)) + 6;
+
+        const tl = gsap.timeline();
+
+        // 1. Animate container width smoothly to fit new word
+        tl.to(container, {
+            width: targetWidth,
+            duration: 0.5,
+            ease: 'power3.inOut'
+        }, 0);
+
+        // 2. Flip current word OUT (rotate up)
+        tl.to(currentWord, {
+            yPercent: -100,
+            rotateX: 80,
+            opacity: 0,
+            duration: 0.55,
+            ease: 'power3.inOut'
+        }, 0);
+
+        // 3. Flip next word IN (from bottom)
+        tl.fromTo(nextWord, 
+            { yPercent: 100, rotateX: -80, opacity: 0 },
+            {
+                yPercent: 0,
+                rotateX: 0,
+                opacity: 1,
+                duration: 0.65,
+                ease: 'power3.out'
+            },
+            0.15
+        );
+
+        currentIndex = nextIndex;
+    }
+
+    // Start interval cycle
+    intervalId = setInterval(flipToNext, 2800);
+
+    // Pause on background tab to conserve resources
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            if (intervalId) clearInterval(intervalId);
+        } else {
+            intervalId = setInterval(flipToNext, 2800);
+        }
+    });
+
+    // Handle responsive window resize
+    window.addEventListener('resize', () => {
+        const currentActiveWidth = Math.ceil(getWordWidth(words[currentIndex])) + 6;
+        container.style.width = `${currentActiveWidth}px`;
     });
 }
