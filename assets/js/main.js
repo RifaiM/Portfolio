@@ -45,11 +45,11 @@ function initThemeSystem() {
 
         localStorage.setItem('portfolio-theme', newTheme);
 
-        // GSAP pulse animation on toggle
+        // GSAP 360 spring flip animation on toggle
         if (typeof gsap !== 'undefined') {
             gsap.fromTo(themeBtn, 
-                { scale: 0.8, rotate: -30 }, 
-                { scale: 1, rotate: 0, duration: 0.4, ease: 'back.out(2)' }
+                { scale: 0.75, rotate: -180 }, 
+                { scale: 1, rotate: 0, duration: 0.5, ease: 'back.out(2.2)' }
             );
         }
     });
