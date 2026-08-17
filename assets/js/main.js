@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavbarScroll();
     initScrollProgressAndActiveNav();
     initGSAPAnimations();
-    initWordFlipper();
+    initTypewriter();
     initStatCounters();
     initAmbientGlowFloating();
     initMagneticButtons();
@@ -473,130 +473,72 @@ function initCard3DTilt() {
 }
 
 /**
- * 12. Liquid Word Cycler (2D Mask & Optical Blur - Butter Smooth)
+ * 12. Typewriter Effect for Hero Headline (Reliable, Crisp & Readable)
  */
-function initWordFlipper() {
-    const container = document.querySelector('.word-flipper-container');
-    const words = document.querySelectorAll('.flip-word');
-    if (!container || words.length === 0 || typeof gsap === 'undefined') return;
+function initTypewriter() {
+    const textElement = document.getElementById('typewriter-text');
+    if (!textElement) return;
 
-    let currentIndex = 0;
-    const totalWords = words.length;
-    let isTransitioning = false;
+    const phrases = [
+        'fast, privacy-friendly',
+        '100% in-browser',
+        'real-time synced',
+        'zero-subscription'
+    ];
 
-    // Measure exact rendered width inside hero title typography
-    function getWordWidth(element) {
-        const parent = container.parentElement || container;
-        const clone = element.cloneNode(true);
-        clone.style.visibility = 'hidden';
-        clone.style.position = 'absolute';
-        clone.style.display = 'inline-flex';
-        clone.style.width = 'auto';
-        clone.style.transform = 'none';
-        clone.style.filter = 'none';
-        clone.style.left = '-9999px';
-        clone.style.top = '-9999px';
-        parent.appendChild(clone);
-        const width = clone.getBoundingClientRect().width;
-        parent.removeChild(clone);
-        return width;
-    }
+    let phraseIndex = 0;
+    let charIndex = phrases[0].length;
+    let isDeleting = false;
+    let timeoutId = null;
 
-    function setContainerWidth(animate = false, targetWidth = null) {
-        const width = targetWidth !== null ? targetWidth : Math.ceil(getWordWidth(words[currentIndex])) + 14;
-        if (animate) {
-            gsap.to(container, {
-                width: width,
-                duration: 0.5,
-                ease: 'power3.inOut'
-            });
-        } else {
-            container.style.width = `${width}px`;
+    const TYPING_SPEED = 75;       // ms per char typed
+    const DELETING_SPEED = 40;     // ms per char deleted
+    const PAUSE_END = 2500;        // ms to stay fully readable on screen
+    const PAUSE_START = 450;       // ms pause before typing next word
+
+    function type() {
+        if (document.hidden) {
+            timeoutId = setTimeout(type, 500);
+            return;
         }
-    }
 
-    // Set clean initial state for word 0 (visible, sharp, in place)
-    words.forEach((word, i) => {
-        if (i === 0) {
-            gsap.set(word, { opacity: 1, yPercent: 0, filter: 'blur(0px)' });
+        const currentPhrase = phrases[phraseIndex];
+
+        if (isDeleting) {
+            charIndex--;
+            textElement.textContent = currentPhrase.substring(0, charIndex);
         } else {
-            gsap.set(word, { opacity: 0, yPercent: 100, filter: 'blur(4px)' });
+            charIndex++;
+            textElement.textContent = currentPhrase.substring(0, charIndex);
         }
-    });
 
-    setContainerWidth(false);
+        let delay = isDeleting ? DELETING_SPEED : TYPING_SPEED;
 
-    // Re-measure when Google Fonts finish loading
-    if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(() => {
-            setContainerWidth(false);
-        });
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            // Finished typing the phrase -> pause so user comfortably reads it
+            delay = PAUSE_END;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            // Finished deleting -> advance to next phrase and pause briefly
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            delay = PAUSE_START;
+        }
+
+        timeoutId = setTimeout(type, delay);
     }
 
-    let intervalId = null;
+    // Start cycling after initial display time
+    timeoutId = setTimeout(() => {
+        isDeleting = true;
+        type();
+    }, 2500);
 
-    function flipToNext() {
-        if (document.hidden || isTransitioning) return;
-        isTransitioning = true;
-
-        const currentWord = words[currentIndex];
-        const nextIndex = (currentIndex + 1) % totalWords;
-        const nextWord = words[nextIndex];
-
-        const targetWidth = Math.ceil(getWordWidth(nextWord)) + 14;
-
-        // Position next word below with blur and 0 opacity
-        gsap.set(nextWord, { yPercent: 100, opacity: 0, filter: 'blur(4px)' });
-
-        const tl = gsap.timeline({
-            onComplete: () => {
-                // Silently reset exited word to bottom queue
-                gsap.set(currentWord, { yPercent: 100, opacity: 0, filter: 'blur(4px)' });
-                currentIndex = nextIndex;
-                isTransitioning = false;
-            }
-        });
-
-        // 1. Smooth container width glide
-        tl.to(container, {
-            width: targetWidth,
-            duration: 0.5,
-            ease: 'power3.inOut'
-        }, 0);
-
-        // 2. Slide current word OUT (upward + blur + fade)
-        tl.to(currentWord, {
-            yPercent: -100,
-            opacity: 0,
-            filter: 'blur(4px)',
-            duration: 0.48,
-            ease: 'power3.inOut'
-        }, 0);
-
-        // 3. Slide next word IN (from bottom + unblur + fade in)
-        tl.to(nextWord, {
-            yPercent: 0,
-            opacity: 1,
-            filter: 'blur(0px)',
-            duration: 0.52,
-            ease: 'power3.out'
-        }, 0.1);
-    }
-
-    // Start interval cycle (every 3 seconds)
-    intervalId = setInterval(flipToNext, 3000);
-
-    // Pause on background tab to conserve resources
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
-            if (intervalId) clearInterval(intervalId);
+            if (timeoutId) clearTimeout(timeoutId);
         } else {
-            intervalId = setInterval(flipToNext, 3000);
+            timeoutId = setTimeout(type, 500);
         }
-    });
-
-    // Handle responsive window resize
-    window.addEventListener('resize', () => {
-        setContainerWidth(false);
     });
 }
