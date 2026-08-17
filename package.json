@@ -1,0 +1,21 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio of Rifai — Software Developer & Web Engineer",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve . -l 3000",
+    "start": "serve . -l 3000",
+    "preview": "serve . -l 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "web-engineer"
+  ],
+  "author": "Rifai",
+  "license": "MIT"
+}

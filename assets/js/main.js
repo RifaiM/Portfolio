@@ -1,5 +1,5 @@
 /**
- * MOCHAMMAD RIFAI PORTFOLIO — GSAP ANIMATIONS & THEME SYSTEM (2026)
+ * RIFAI PORTFOLIO — GSAP ANIMATIONS & THEME SYSTEM (2026)
  * Powered by GSAP 3 & ScrollTrigger with Dark/Light Theme Switching
  */
 

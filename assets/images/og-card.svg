@@ -39,7 +39,7 @@
   <text x="980" y="115" fill="#10B981" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Available</text>
 
   <!-- Title & Subtitle -->
-  <text x="100" y="230" fill="url(#accentGrad)" font-family="system-ui, sans-serif" font-size="52" font-weight="800" letter-spacing="-1">Mochammad Rifai</text>
+  <text x="100" y="230" fill="url(#accentGrad)" font-family="system-ui, sans-serif" font-size="52" font-weight="800" letter-spacing="-1">Rifai</text>
   <text x="100" y="285" fill="#F3F4F6" font-family="system-ui, sans-serif" font-size="34" font-weight="700">Software Developer &amp; Web Engineer</text>
   <text x="100" y="330" fill="#9CA3AF" font-family="system-ui, sans-serif" font-size="20" font-weight="400">Building fast, privacy-first web applications &amp; interactive digital tools.</text>
 
@@ -47,7 +47,7 @@
   <g transform="translate(100, 390)">
     <!-- Project 1 -->
     <rect x="0" y="0" width="230" height="120" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-    <text x="20" y="40" fill="#6366F1" font-family="monospace" font-size="12" font-weight="600">01 / FILE SUITE</text>
+    <text x="20" y="40" fill="#6366F1" font-family="monospace" font-size="12" font-weight="600">01 / FILE TOOLS</text>
     <text x="20" y="70" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="20" font-weight="700">FilesSwift</text>
     <text x="20" y="95" fill="#9CA3AF" font-family="monospace" font-size="13">fileswift.app</text>
 
