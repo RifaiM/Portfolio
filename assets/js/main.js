@@ -1,21 +1,15 @@
 /**
- * RIFAI PORTFOLIO — GSAP ANIMATIONS & INTERACTION SYSTEM (2026)
- * Powered by GSAP 3 & ScrollTrigger with Dark/Light Theme Switching
+ * RIFAI - SOFTWARE DEVELOPER PORTFOLIO (2026)
+ * Lightweight, Clean Interactions & Theme System
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     initThemeSystem();
     initNavbarScroll();
-    initScrollProgressAndActiveNav();
-    initGSAPAnimations();
-    initTypewriter();
-    initStatCounters();
-    initAmbientGlowFloating();
-    initMagneticButtons();
-    initSpotlightCards();
+    initScrollProgress();
     initCopyEmail();
     initJakartaClock();
-    initCard3DTilt();
+    initScrollReveals();
 });
 
 /**
@@ -44,26 +38,18 @@ function initThemeSystem() {
         }
 
         localStorage.setItem('portfolio-theme', newTheme);
-
-        // GSAP 360 spring flip animation on toggle
-        if (typeof gsap !== 'undefined') {
-            gsap.fromTo(themeBtn, 
-                { scale: 0.75, rotate: -180 }, 
-                { scale: 1, rotate: 0, duration: 0.5, ease: 'back.out(2.2)' }
-            );
-        }
     });
 }
 
 /**
- * 2. Navbar Glassmorphic Background Adjustment on Scroll
+ * 2. Navbar Background Adjustment on Scroll
  */
 function initNavbarScroll() {
     const navbarContainer = document.querySelector('.navbar-container');
     if (!navbarContainer) return;
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 40) {
+        if (window.scrollY > 30) {
             navbarContainer.classList.add('scrolled');
         } else {
             navbarContainer.classList.remove('scrolled');
@@ -72,31 +58,30 @@ function initNavbarScroll() {
 }
 
 /**
- * 3. Scroll Progress Indicator & Active Section Nav Highlight
+ * 3. Minimal Scroll Progress Bar
  */
-function initScrollProgressAndActiveNav() {
+function initScrollProgress() {
     const progressBar = document.getElementById('scroll-progress');
-    const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
 
     function onScroll() {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-        // Progress bar calculation
         if (progressBar && docHeight > 0) {
             const progress = Math.min(Math.max(scrollTop / docHeight, 0), 1);
             progressBar.style.transform = `scaleX(${progress})`;
         }
 
-        // Active navigation link tracking
+        // Active nav tracking
         let currentSection = '';
-        const scrollPosition = scrollTop + 180;
+        const scrollPosition = scrollTop + 160;
 
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            const top = section.offsetTop;
+            const height = section.offsetHeight;
+            if (scrollPosition >= top && scrollPosition < top + height) {
                 currentSection = section.getAttribute('id');
             }
         });
@@ -114,276 +99,7 @@ function initScrollProgressAndActiveNav() {
 }
 
 /**
- * 4. GSAP & ScrollTrigger Entrance & Scroll Animations
- */
-function initGSAPAnimations() {
-    if (typeof gsap === 'undefined') return;
-
-    // Register ScrollTrigger plugin if available
-    if (typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-    }
-
-    // Hero Section Entrance Timeline
-    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 1 } });
-
-    heroTl
-        .fromTo('.hero-badge', 
-            { opacity: 0, y: 25 }, 
-            { opacity: 1, y: 0, delay: 0.2 }
-        )
-        .fromTo('.hero-title', 
-            { opacity: 0, y: 35 }, 
-            { opacity: 1, y: 0 }, 
-            '-=0.7'
-        )
-        .fromTo('.hero-subtitle', 
-            { opacity: 0, y: 30 }, 
-            { opacity: 1, y: 0 }, 
-            '-=0.7'
-        )
-        .fromTo('.tag-pill', 
-            { opacity: 0, scale: 0.9, y: 15 }, 
-            { opacity: 1, scale: 1, y: 0, stagger: 0.06 }, 
-            '-=0.6'
-        )
-        .fromTo('.hero-actions .btn', 
-            { opacity: 0, y: 20 }, 
-            { opacity: 1, y: 0, stagger: 0.15 }, 
-            '-=0.4'
-        );
-
-    // ScrollTrigger for Section Headers
-    if (typeof ScrollTrigger !== 'undefined') {
-        gsap.utils.toArray('.section-header').forEach(header => {
-            gsap.fromTo(header, 
-                { opacity: 0, y: 40 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: header,
-                        start: 'top 85%',
-                        toggleActions: 'play none none none'
-                    }
-                }
-            );
-        });
-
-        // Project Cards Entrance & Image Parallax Effect
-        gsap.utils.toArray('.project-card').forEach((card) => {
-            gsap.fromTo(card,
-                { opacity: 0, y: 60, scale: 0.96 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    duration: 1.1,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 85%',
-                        toggleActions: 'play none none none'
-                    }
-                }
-            );
-
-            // Parallax effect on project images inside card
-            const img = card.querySelector('.media-frame img');
-            if (img) {
-                gsap.fromTo(img,
-                    { yPercent: -8 },
-                    {
-                        yPercent: 8,
-                        ease: 'none',
-                        scrollTrigger: {
-                            trigger: card,
-                            start: 'top bottom',
-                            end: 'bottom top',
-                            scrub: true
-                        }
-                    }
-                );
-            }
-        });
-
-        // About Section & Skill Cards Stagger Reveal
-        gsap.fromTo('.about-main', 
-            { opacity: 0, x: -40 },
-            {
-                opacity: 1,
-                x: 0,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.about-section',
-                    start: 'top 80%'
-                }
-            }
-        );
-
-        gsap.fromTo('.skill-card',
-            { opacity: 0, y: 30 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                stagger: 0.15,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.about-cards',
-                    start: 'top 85%'
-                }
-            }
-        );
-
-        // Contact Box Entrance
-        gsap.fromTo('.contact-box',
-            { opacity: 0, y: 50, scale: 0.95 },
-            {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 1.1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.contact-section',
-                    start: 'top 80%'
-                }
-            }
-        );
-    }
-}
-
-/**
- * 5. Animated Counter Numbers for Stats
- */
-function initStatCounters() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-
-    const stats = document.querySelectorAll('.stat-number[data-target]');
-    if (!stats.length) return;
-
-    ScrollTrigger.create({
-        trigger: '.about-stats',
-        start: 'top 85%',
-        once: true,
-        onEnter: () => {
-            stats.forEach(stat => {
-                const target = parseInt(stat.getAttribute('data-target'), 10) || 0;
-                const prefix = stat.getAttribute('data-prefix') || '';
-                const suffix = stat.getAttribute('data-suffix') || '';
-
-                const obj = { val: 0 };
-                gsap.to(obj, {
-                    val: target,
-                    duration: 1.8,
-                    ease: 'power2.out',
-                    onUpdate: () => {
-                        stat.textContent = `${prefix}${Math.round(obj.val)}${suffix}`;
-                    }
-                });
-            });
-        }
-    });
-}
-
-/**
- * 6. Continuous Organic Floating for Ambient Glow Orbs
- */
-function initAmbientGlowFloating() {
-    if (typeof gsap === 'undefined') return;
-
-    gsap.to('.glow-1', {
-        x: '+=80',
-        y: '+=60',
-        scale: 1.15,
-        duration: 10,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-    });
-
-    gsap.to('.glow-2', {
-        x: '-=70',
-        y: '+=90',
-        scale: 1.2,
-        duration: 12,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        delay: 1
-    });
-
-    gsap.to('.glow-3', {
-        x: '+=60',
-        y: '-=50',
-        scale: 1.1,
-        duration: 9,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        delay: 2
-    });
-}
-
-/**
- * 7. Magnetic Micro-Interaction on Primary Buttons
- */
-function initMagneticButtons() {
-    if (window.matchMedia('(pointer: coarse)').matches || typeof gsap === 'undefined') return;
-
-    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .project-link-btn, .theme-toggle-btn, .copy-btn');
-
-    buttons.forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-
-            gsap.to(btn, {
-                x: x * 0.22,
-                y: y * 0.22,
-                duration: 0.3,
-                ease: 'power2.out'
-            });
-        });
-
-        btn.addEventListener('mouseleave', () => {
-            gsap.to(btn, {
-                x: 0,
-                y: 0,
-                duration: 0.6,
-                ease: 'elastic.out(1.1, 0.4)'
-            });
-        });
-    });
-}
-
-/**
- * 8. Cursor Spotlight Glow on Cards (Linear / Vercel Glassmorphism)
- */
-function initSpotlightCards() {
-    if (window.matchMedia('(pointer: coarse)').matches) return;
-
-    const cards = document.querySelectorAll('.project-card, .skill-card, .contact-box');
-
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
-        });
-    });
-}
-
-/**
- * 9. Email Copy-to-Clipboard Functionality with Toast Notification
+ * 4. Email Copy-to-Clipboard Functionality
  */
 function initCopyEmail() {
     const copyBtn = document.getElementById('copy-email-btn');
@@ -415,12 +131,12 @@ function initCopyEmail() {
         toast.classList.add('show');
         setTimeout(() => {
             toast.classList.remove('show');
-        }, 3000);
+        }, 2500);
     }
 }
 
 /**
- * 10. Live Jakarta (WIB) Digital Clock
+ * 5. Live Jakarta Time (WIB)
  */
 function initJakartaClock() {
     const timeDisplay = document.getElementById('local-time');
@@ -432,12 +148,11 @@ function initJakartaClock() {
             timeZone: 'Asia/Jakarta',
             hour: '2-digit',
             minute: '2-digit',
-            second: '2-digit',
             hour12: false
         };
         const formatter = new Intl.DateTimeFormat('en-GB', options);
         const timeString = formatter.format(now);
-        timeDisplay.textContent = `Jakarta (WIB) — ${timeString} • UTC+7`;
+        timeDisplay.textContent = `Jakarta ${timeString} WIB`;
     }
 
     updateTime();
@@ -445,125 +160,59 @@ function initJakartaClock() {
 }
 
 /**
- * 11. Subtle 3D Card Parallax Tilt on Hover
+ * 6. Subtle Scroll Reveals (GSAP / ScrollTrigger)
  */
-function initCard3DTilt() {
-    const cards = document.querySelectorAll('.project-card');
-    if (window.matchMedia('(pointer: coarse)').matches) return;
+function initScrollReveals() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 45;
-            const rotateY = (centerX - x) / 45;
+    gsap.registerPlugin(ScrollTrigger);
 
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-        });
+    // Hero entrance
+    gsap.from('.hero-content > *', {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power2.out'
+    });
 
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+    // Project cards reveal
+    gsap.utils.toArray('.project-card').forEach(card => {
+        gsap.from(card, {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 88%',
+                toggleActions: 'play none none none'
+            }
         });
     });
-}
 
-/**
- * 12. Typewriter Effect with Scroll-Aware Auto-Pause (Zero Background Shifts)
- */
-function initTypewriter() {
-    const textElement = document.getElementById('typewriter-text');
-    const heroSection = document.querySelector('.hero-section');
-    if (!textElement) return;
-
-    const phrases = [
-        'fast, privacy-friendly',
-        '100% in-browser',
-        'real-time synced',
-        'zero-subscription'
-    ];
-
-    let phraseIndex = 0;
-    let charIndex = phrases[0].length;
-    let isDeleting = false;
-    let timeoutId = null;
-    let isHeroVisible = true;
-
-    const TYPING_SPEED = 75;       // ms per char typed
-    const DELETING_SPEED = 40;     // ms per char deleted
-    const PAUSE_END = 2500;        // ms to stay fully readable on screen
-    const PAUSE_START = 450;       // ms pause before typing next word
-
-    function type() {
-        // If tab is in background OR user has scrolled away from hero section, stop execution
-        if (document.hidden || !isHeroVisible) {
-            return;
+    // About & Contact sections
+    gsap.from('.about-grid', {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+            trigger: '.about-section',
+            start: 'top 85%',
+            toggleActions: 'play none none none'
         }
+    });
 
-        const currentPhrase = phrases[phraseIndex];
-
-        if (isDeleting) {
-            charIndex--;
-            textElement.textContent = currentPhrase.substring(0, charIndex);
-        } else {
-            charIndex++;
-            textElement.textContent = currentPhrase.substring(0, charIndex);
-        }
-
-        let delay = isDeleting ? DELETING_SPEED : TYPING_SPEED;
-
-        if (!isDeleting && charIndex === currentPhrase.length) {
-            // Finished typing the phrase -> pause so user comfortably reads it
-            delay = PAUSE_END;
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            // Finished deleting -> advance to next phrase and pause briefly
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            delay = PAUSE_START;
-        }
-
-        timeoutId = setTimeout(type, delay);
-    }
-
-    // Scroll-Aware Observer: Pause immediately when leaving Hero, resume when returning
-    if ('IntersectionObserver' in window && heroSection) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const wasVisible = isHeroVisible;
-                isHeroVisible = entry.isIntersecting;
-
-                if (!isHeroVisible) {
-                    // Leaving Hero section -> freeze all typing timers immediately
-                    if (timeoutId) clearTimeout(timeoutId);
-                } else if (!wasVisible && isHeroVisible) {
-                    // Returning to Hero section -> resume typing smoothly
-                    if (timeoutId) clearTimeout(timeoutId);
-                    timeoutId = setTimeout(type, 300);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        observer.observe(heroSection);
-    }
-
-    // Start initial typing cycle
-    timeoutId = setTimeout(() => {
-        isDeleting = true;
-        type();
-    }, 2500);
-
-    // Pause on background browser tab
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            if (timeoutId) clearTimeout(timeoutId);
-        } else if (isHeroVisible) {
-            if (timeoutId) clearTimeout(timeoutId);
-            timeoutId = setTimeout(type, 500);
+    gsap.from('.contact-card', {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+            trigger: '.contact-section',
+            start: 'top 85%',
+            toggleActions: 'play none none none'
         }
     });
 }
