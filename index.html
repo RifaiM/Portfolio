@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
     <title>Rifai - Software Developer</title>
-    <meta name="description" content="Rifai is a software developer based in West Jakarta, Indonesia. Building fast web applications, browser utilities, and developer tools.">
-    <meta name="keywords" content="Rifai, FileSwift, Emailnya, Resonia, AIMedium, NoviCodes, Software Developer, Web Developer, Jakarta, Next.js, React, TypeScript, Astro">
+    <meta name="description" content="Software developer based in Jakarta, Indonesia. Building high-performance web applications and browser-native tools with client-side compute.">
+    <meta name="keywords" content="Rifai, FileSwift, Emailnya, Resonia, AIMedium, NoviCodes, Software Developer, Web Developer, Jakarta, WebAssembly, Client-Side Architecture">
     <meta name="author" content="Rifai">
 
     <!-- Favicon -->
@@ -17,7 +17,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rifaim.github.io/">
     <meta property="og:title" content="Rifai - Software Developer">
-    <meta property="og:description" content="Software developer based in Jakarta, Indonesia. Building fast web apps and practical browser tools.">
+    <meta property="og:description" content="Software developer based in Jakarta, Indonesia. Building high-performance web applications and browser-native tools.">
     <meta property="og:image" content="./assets/images/og-card.svg">
 
     <!-- Google Fonts -->
@@ -68,28 +68,15 @@
         <section class="hero-section" id="hero">
             <div class="container">
                 <div class="hero-content">
-                    <div class="hero-badge">
-                        <span class="badge-dot"></span>
-                        <span>Software Developer &middot; Jakarta, Indonesia</span>
-                    </div>
-
+                    <div class="hero-meta">Software Developer &middot; Jakarta, Indonesia</div>
+                    
                     <h1 class="hero-title">
                         Hey, I'm <span class="hero-highlight">Rifai</span>.
                     </h1>
 
                     <p class="hero-subtitle">
-                        I build fast, lightweight web applications and practical browser tools. I focus on client-side privacy, clean design, and software with zero subscription fees.
+                        I build high-performance web applications and browser-native tools with an emphasis on client-side compute, user privacy, and zero monthly subscriptions.
                     </p>
-
-                    <div class="hero-stack-pills">
-                        <span class="stack-pill">Next.js</span>
-                        <span class="stack-pill">React</span>
-                        <span class="stack-pill">TypeScript</span>
-                        <span class="stack-pill">Astro</span>
-                        <span class="stack-pill">Tailwind CSS</span>
-                        <span class="stack-pill">FFmpeg WASM</span>
-                        <span class="stack-pill">Cloudflare</span>
-                    </div>
 
                     <div class="hero-actions">
                         <a href="#projects" class="btn btn-primary">
@@ -109,10 +96,10 @@
         <section class="projects-section" id="projects">
             <div class="container">
                 <div class="section-header">
-                    <div class="section-badge">FEATURED WORK</div>
-                    <h2 class="section-title">Projects I've Built</h2>
+                    <div class="section-label">SELECTED WORK</div>
+                    <h2 class="section-title">Projects &amp; Architecture</h2>
                     <p class="section-description">
-                        A selection of real-world tools and web apps I've built and actively maintain.
+                        Tools designed to run locally, scale without server overhead, and deliver fast user experiences.
                     </p>
                 </div>
 
@@ -133,28 +120,21 @@
                                     FilesSwift <span class="external-icon">&nearr;</span>
                                 </a>
                             </h3>
-                            <p class="project-tagline">Free In-Browser File Converter & PDF Tools</p>
-                            <p class="project-summary">
-                                A suite of 39+ free tools to convert documents, compress images, and edit video files. Everything runs 100% inside the browser using WebAssembly, meaning files never leave the user's device.
+                            <p class="project-tagline">In-browser file converter and local media utilities</p>
+                            
+                            <p class="project-description">
+                                A collection of 39+ utilities for converting documents, compressing images, and editing video. Built to execute FFmpeg directly inside browser WebAssembly memory, processing gigabytes of media on the client's CPU without uploading a single byte to remote servers.
                             </p>
 
-                            <ul class="project-features">
-                                <li>100% private - files never upload to any remote server</li>
-                                <li>39+ utilities for PDF, image compression, and video conversion</li>
-                                <li>Bilingual support for English and Indonesian</li>
-                            </ul>
-
-                            <div class="project-tech-stack">
-                                <span class="tech-tag">Astro</span>
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">FFmpeg WASM</span>
-                                <span class="tech-tag">Tailwind CSS</span>
+                            <div class="project-architecture">
+                                <span class="arch-label">Architecture</span>
+                                <span class="arch-value">Client-side WebAssembly compute &middot; Zero remote server egress &middot; 100% offline-ready</span>
                             </div>
 
                             <div class="project-action">
                                 <a href="https://fileswift.app" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                                    <span>Visit fileswift.app</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                    <span>Open fileswift.app</span>
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                                 </a>
                             </div>
                         </div>
@@ -175,28 +155,21 @@
                                     Emailnya <span class="external-icon">&nearr;</span>
                                 </a>
                             </h3>
-                            <p class="project-tagline">Visual Email Template Builder & Disposable Inbox</p>
-                            <p class="project-summary">
-                                A responsive drag-and-drop newsletter builder and temporary burner email tool. Exports clean, cross-client HTML and gives users instant inboxes with zero account registration.
+                            <p class="project-tagline">Visual email template compiler and disposable inbox</p>
+                            
+                            <p class="project-description">
+                                A lightweight drag-and-drop newsletter builder combined with an instant disposable email client. Generates cross-client HTML and manages temporary mailbox sessions entirely in browser memory with zero tracking or database overhead.
                             </p>
 
-                            <ul class="project-features">
-                                <li>Visual block editor with real-time mobile and desktop previews</li>
-                                <li>One-click HTML template export compatible with Gmail & Outlook</li>
-                                <li>100% client-side privacy with zero monthly subscriptions</li>
-                            </ul>
-
-                            <div class="project-tech-stack">
-                                <span class="tech-tag">Next.js 16</span>
-                                <span class="tech-tag">React 19</span>
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">Tailwind CSS</span>
+                            <div class="project-architecture">
+                                <span class="arch-label">Architecture</span>
+                                <span class="arch-value">Client-rendered HTML compiler &middot; Zero-database session storage &middot; Edge API proxy</span>
                             </div>
 
                             <div class="project-action">
                                 <a href="https://emailnya.com" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                                    <span>Visit emailnya.com</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                    <span>Open emailnya.com</span>
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                                 </a>
                             </div>
                         </div>
@@ -217,28 +190,21 @@
                                     Resonia <span class="external-icon">&nearr;</span>
                                 </a>
                             </h3>
-                            <p class="project-tagline">Ambient Soundscapes & Focus Audio Workspace</p>
-                            <p class="project-summary">
-                                An ambient audio mixer designed for concentration, deep work, and relaxation. Features layered high-definition nature sounds, binaural beats, and background playback with phone lock-screen controls.
+                            <p class="project-tagline">Ambient soundscape generator and focus workspace</p>
+                            
+                            <p class="project-description">
+                                A multi-track environmental audio mixer with real-time waveform visualizers. Utilizes the Web Audio API for low-latency sound synthesis and integrates with browser Media Session APIs for background playback and phone lock-screen controls.
                             </p>
 
-                            <ul class="project-features">
-                                <li>Multi-layer sound mixer with independent volume controls</li>
-                                <li>Real-time visual waveform and Media Session lock-screen controls</li>
-                                <li>Runs completely offline with Progressive Web App support</li>
-                            </ul>
-
-                            <div class="project-tech-stack">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Web Audio API</span>
-                                <span class="tech-tag">Tailwind CSS</span>
-                                <span class="tech-tag">Vite</span>
+                            <div class="project-architecture">
+                                <span class="arch-label">Architecture</span>
+                                <span class="arch-value">Multi-track Web Audio API node mixer &middot; Media Session background controls &middot; PWA cache</span>
                             </div>
 
                             <div class="project-action">
                                 <a href="https://resonia.app" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                                    <span>Visit resonia.app</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                    <span>Open resonia.app</span>
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                                 </a>
                             </div>
                         </div>
@@ -259,28 +225,21 @@
                                     NoviCodes <span class="external-icon">&nearr;</span>
                                 </a>
                             </h3>
-                            <p class="project-tagline">Interactive Web Development Coding Lessons</p>
-                            <p class="project-summary">
-                                A clean, hands-on learning platform for beginners to learn web development. Features structured curriculum tracks, interactive code challenges, and instant browser-based execution.
+                            <p class="project-tagline">Interactive programming curriculum and browser code runner</p>
+                            
+                            <p class="project-description">
+                                An interactive web development learning platform with structured skill roadmaps. Incorporates client-side Python and JavaScript execution environments via WebAssembly so learners run and debug code instantly in their browser without backend sandboxes.
                             </p>
 
-                            <ul class="project-features">
-                                <li>Structured learning tracks from frontend basics to full-stack</li>
-                                <li>In-browser code execution for JavaScript and Python exercises</li>
-                                <li>Interactive practice modules with progress tracking</li>
-                            </ul>
-
-                            <div class="project-tech-stack">
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">HTML5 / CSS3</span>
-                                <span class="tech-tag">Pyodide WASM</span>
-                                <span class="tech-tag">Vercel</span>
+                            <div class="project-architecture">
+                                <span class="arch-label">Architecture</span>
+                                <span class="arch-value">In-browser Pyodide WASM interpreter &middot; Real-time syntax validation &middot; Zero backend compute</span>
                             </div>
 
                             <div class="project-action">
                                 <a href="https://novicodes.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                                    <span>Visit novicodes</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                    <span>Open novicodes</span>
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                                 </a>
                             </div>
                         </div>
@@ -295,34 +254,27 @@
                         </div>
 
                         <div class="project-info">
-                            <div class="project-num">05 / AI & ENGINEERING</div>
+                            <div class="project-num">05 / AI &amp; INFRASTRUCTURE</div>
                             <h3 class="project-title">
                                 <a href="https://aimedium.app" target="_blank" rel="noopener noreferrer">
                                     AIMedium <span class="external-icon">&nearr;</span>
                                 </a>
                             </h3>
-                            <p class="project-tagline">Practical AI Engineering & Infrastructure Guides</p>
-                            <p class="project-summary">
-                                A technical publication sharing practical AI benchmarks, PyTorch speed optimizations, cloud GPU cost comparisons, and step-by-step developer guides.
+                            <p class="project-tagline">AI infrastructure benchmarks and engineering guides</p>
+                            
+                            <p class="project-description">
+                                A technical publication and benchmark utility exploring real-world GPU inference costs, PyTorch optimization techniques, and lightweight local AI models for production developers.
                             </p>
 
-                            <ul class="project-features">
-                                <li>Real-world GPU cloud benchmarks and cost analysis tools</li>
-                                <li>PyTorch and LLM inference optimization tutorials</li>
-                                <li>Clean, distraction-free reading experience with fast page loads</li>
-                            </ul>
-
-                            <div class="project-tech-stack">
-                                <span class="tech-tag">React 19</span>
-                                <span class="tech-tag">Vite</span>
-                                <span class="tech-tag">Tailwind CSS</span>
-                                <span class="tech-tag">TypeScript</span>
+                            <div class="project-architecture">
+                                <span class="arch-label">Architecture</span>
+                                <span class="arch-value">Static edge-rendered publication &middot; Interactive cloud GPU pricing calculator</span>
                             </div>
 
                             <div class="project-action">
                                 <a href="https://aimedium.app" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                                    <span>Visit aimedium.app</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                    <span>Open aimedium.app</span>
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                                 </a>
                             </div>
                         </div>
@@ -336,57 +288,20 @@
         <section class="about-section" id="about">
             <div class="container">
                 <div class="section-header">
-                    <div class="section-badge">BACKGROUND</div>
-                    <h2 class="section-title">About Me</h2>
+                    <div class="section-label">BACKGROUND</div>
+                    <h2 class="section-title">About &amp; Principles</h2>
                 </div>
 
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p>
-                            I'm a software developer based in West Jakarta, Indonesia. I build modern web applications with a focus on speed, simplicity, and practical utility.
-                        </p>
-                        <p>
-                            I'm particularly interested in client-side architectures, browser WebAssembly, and building tools that work directly on the user's device without requiring accounts, tracking, or monthly subscriptions.
-                        </p>
-                        <p>
-                            When I'm not building web applications, I share tutorials and experiments on my YouTube channel and explore open-source tools.
-                        </p>
-                    </div>
-
-                    <div class="stack-box">
-                        <h3 class="stack-title">Technologies & Tools</h3>
-                        
-                        <div class="stack-category">
-                            <span class="category-name">Frontend</span>
-                            <div class="category-tags">
-                                <span class="tech-badge">Next.js</span>
-                                <span class="tech-badge">React</span>
-                                <span class="tech-badge">Astro</span>
-                                <span class="tech-badge">TypeScript</span>
-                                <span class="tech-badge">Tailwind CSS</span>
-                            </div>
-                        </div>
-
-                        <div class="stack-category">
-                            <span class="category-name">Backend & Edge</span>
-                            <div class="category-tags">
-                                <span class="tech-badge">Node.js</span>
-                                <span class="tech-badge">Cloudflare Workers</span>
-                                <span class="tech-badge">Supabase</span>
-                                <span class="tech-badge">REST APIs</span>
-                            </div>
-                        </div>
-
-                        <div class="stack-category">
-                            <span class="category-name">In-Browser & Performance</span>
-                            <div class="category-tags">
-                                <span class="tech-badge">FFmpeg WASM</span>
-                                <span class="tech-badge">Web Audio API</span>
-                                <span class="tech-badge">Pyodide WASM</span>
-                                <span class="tech-badge">PWA</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="about-content">
+                    <p class="about-lead">
+                        I build software because I enjoy creating tools that are fast, accessible, and respect the person using them.
+                    </p>
+                    <p>
+                        Much of the modern web relies on heavy cloud servers and recurring subscriptions for tasks that modern client devices can perform locally. My focus is leveraging client-side compute—WebAssembly, browser storage APIs, and edge networks—to build utilities that run indefinitely at near-zero operating cost.
+                    </p>
+                    <p>
+                        I live and work in West Jakarta, Indonesia. When I'm not building web applications, I share tutorials and experiments on my YouTube channel and explore open-source tools.
+                    </p>
                 </div>
             </div>
         </section>
@@ -403,29 +318,29 @@
                     <div class="email-box">
                         <span class="email-text" id="email-text">rifaialc@gmail.com</span>
                         <button id="copy-email-btn" class="copy-email-btn" aria-label="Copy email address" title="Copy to clipboard">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                             <span>Copy Email</span>
                         </button>
                     </div>
 
                     <div class="social-links-row">
                         <a href="https://github.com/rifaim" target="_blank" rel="noopener noreferrer" class="social-btn">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                             <span>GitHub</span>
                         </a>
                         <a href="https://www.youtube.com/@webeffectsenthusiast" target="_blank" rel="noopener noreferrer" class="social-btn">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                             <span>YouTube</span>
                         </a>
                         <a href="https://www.instagram.com/mchrifai" target="_blank" rel="noopener noreferrer" class="social-btn">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                             <span>Instagram</span>
                         </a>
                     </div>
 
                     <!-- Toast Notification -->
                     <div id="toast" class="toast-notification">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
                         <span>Copied to clipboard</span>
                     </div>
                 </div>
@@ -442,7 +357,7 @@
                 </div>
                 <div class="footer-time">
                     <span class="time-dot"></span>
-                    <span id="local-time">Jakarta 22:26 WIB</span>
+                    <span id="local-time">Jakarta 09:44 WIB</span>
                 </div>
             </div>
         </div>

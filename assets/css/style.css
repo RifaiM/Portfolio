@@ -1,15 +1,15 @@
 /**
  * RIFAI - SOFTWARE DEVELOPER PORTFOLIO
- * Style: Neutral Zinc & High-Contrast Monochrome (Paco Coursey / Apple / GitHub)
- * Zero AI bloom, zero purple/blue cast, 100% human-crafted minimalism.
+ * High-Craft Minimalist & Architectural Narrative (Idea 2)
+ * Zero tech badge clouds, zero AI bloom, pure focus on products and engineering craft.
  */
 
 :root {
-  /* Dark Theme Tokens (True Neutral Zinc / Obsidian) */
+  /* Dark Theme Tokens (True Neutral Zinc) */
   --bg-main: #09090B;
   --bg-surface: #141417;
   --bg-card: #141417;
-  --bg-card-hover: #18181C;
+  --bg-card-hover: #19191D;
   
   --border-subtle: #27272A;
   --border-hover: #52525B;
@@ -25,15 +25,15 @@
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --container-max: 980px;
+  --container-max: 960px;
   --header-height: 68px;
 
-  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
   --transition-fast: 0.15s ease;
   --transition-smooth: 0.25s ease;
 }
 
-/* Light Theme Tokens (Pure Paper White / Crisp Zinc) */
+/* Light Theme Tokens (Pure Paper White & Clean Charcoal) */
 [data-theme="light"] {
   --bg-main: #FFFFFF;
   --bg-surface: #F4F4F5;
@@ -132,7 +132,7 @@ body {
 }
 
 [data-theme="light"] .navbar-container.scrolled {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .navbar {
@@ -204,7 +204,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  transition: border-color var(--transition-fast);
 }
 
 .theme-toggle-btn:hover {
@@ -251,30 +251,19 @@ body {
    ========================================================================== */
 
 .hero-section {
-  padding-top: calc(var(--header-height) + 4.5rem);
+  padding-top: calc(var(--header-height) + 5rem);
   padding-bottom: 4.5rem;
 }
 
 .hero-content {
-  max-width: 720px;
+  max-width: 680px;
 }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+.hero-meta {
+  font-family: var(--font-mono);
   font-size: 0.825rem;
-  font-weight: 500;
   color: var(--text-muted);
   margin-bottom: 1.25rem;
-  font-family: var(--font-mono);
-}
-
-.badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent-emerald);
 }
 
 .hero-title {
@@ -297,24 +286,7 @@ body {
   font-size: clamp(1.05rem, 2vw, 1.2rem);
   color: var(--text-muted);
   line-height: 1.65;
-  margin-bottom: 1.75rem;
-}
-
-.hero-stack-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-bottom: 2rem;
-}
-
-.stack-pill {
-  font-family: var(--font-mono);
-  font-size: 0.775rem;
-  color: var(--text-muted);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  padding: 0.25rem 0.65rem;
-  border-radius: 6px;
+  margin-bottom: 2.25rem;
 }
 
 .hero-actions {
@@ -324,7 +296,7 @@ body {
   flex-wrap: wrap;
 }
 
-/* High-Contrast Buttons */
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -334,7 +306,7 @@ body {
   padding: 0.7rem 1.25rem;
   border-radius: 8px;
   text-decoration: none;
-  transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+  transition: transform var(--transition-fast), opacity var(--transition-fast), border-color var(--transition-fast);
   cursor: pointer;
 }
 
@@ -370,7 +342,7 @@ body {
   margin-bottom: 3rem;
 }
 
-.section-badge {
+.section-label {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
@@ -404,18 +376,18 @@ body {
 .projects-grid {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 3.5rem;
 }
 
 .project-card {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
-  gap: 2.25rem;
+  gap: 2.5rem;
   align-items: center;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
-  padding: 1.75rem;
+  padding: 2rem;
   box-shadow: var(--shadow-card);
   transition: border-color var(--transition-smooth), transform var(--transition-smooth);
 }
@@ -472,7 +444,7 @@ body {
 }
 
 .project-title {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 0.35rem;
   letter-spacing: -0.01em;
@@ -508,55 +480,45 @@ body {
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-muted);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
 }
 
-.project-summary {
-  font-size: 0.9rem;
+.project-description {
+  font-size: 0.925rem;
   color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 1.15rem;
-}
-
-.project-features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  margin-bottom: 1.15rem;
-}
-
-.project-features li {
-  font-size: 0.825rem;
-  color: var(--text-muted);
-  position: relative;
-  padding-left: 1rem;
-}
-
-.project-features li::before {
-  content: '·';
-  position: absolute;
-  left: 0;
-  font-size: 1.2rem;
-  line-height: 0.8;
-  color: var(--text-dim);
-}
-
-.project-tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+  line-height: 1.65;
   margin-bottom: 1.25rem;
 }
 
-.tech-tag {
-  font-family: var(--font-mono);
-  font-size: 0.725rem;
-  color: var(--text-dim);
+/* Architecture Callout (Idea 2: Engineering 'Why' instead of badge pills) */
+.project-architecture {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  padding: 0.2rem 0.5rem;
-  border-radius: 5px;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.arch-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+.arch-value {
+  font-size: 0.825rem;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.project-action {
+  margin-top: auto;
 }
 
 .project-link-btn {
@@ -568,7 +530,7 @@ body {
   color: var(--text-main);
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  padding: 0.5rem 0.9rem;
+  padding: 0.55rem 0.95rem;
   border-radius: 6px;
   text-decoration: none;
   transition: border-color var(--transition-fast), transform var(--transition-fast);
@@ -589,68 +551,21 @@ body {
   border-top: 1px solid var(--border-subtle);
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 3rem;
-}
-
-.about-text {
+.about-content {
+  max-width: 680px;
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
-  font-size: 1rem;
+  gap: 1.25rem;
+  font-size: 1.025rem;
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
-.stack-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 14px;
-  padding: 1.5rem;
-}
-
-.stack-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 1.15rem;
-  color: var(--text-main);
-}
-
-.stack-category {
-  margin-bottom: 1.15rem;
-}
-
-.stack-category:last-child {
-  margin-bottom: 0;
-}
-
-.category-name {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.725rem;
-  font-weight: 600;
-  color: var(--text-dim);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 0.45rem;
-}
-
-.category-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.tech-badge {
-  font-size: 0.775rem;
+.about-lead {
+  font-size: 1.15rem;
   font-weight: 500;
   color: var(--text-main);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  padding: 0.25rem 0.6rem;
-  border-radius: 5px;
+  line-height: 1.6;
 }
 
 /* ==========================================================================
@@ -666,7 +581,7 @@ body {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 16px;
-  padding: 3rem 2rem;
+  padding: 3.5rem 2rem;
   text-align: center;
   max-width: 620px;
   margin: 0 auto;
@@ -822,7 +737,7 @@ body {
   .project-card:nth-child(even) {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    padding: 1.35rem;
+    padding: 1.5rem;
   }
 
   .project-card:nth-child(even) .project-media {
@@ -831,11 +746,6 @@ body {
 
   .project-card:nth-child(even) .project-info {
     order: 2;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
   }
 }
 
