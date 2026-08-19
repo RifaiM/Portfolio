@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "Portfolio of Rifai — Software Developer & Web Engineer",
+  "description": "Portfolio of Rifai - Software Developer",
   "main": "index.html",
   "scripts": {
     "dev": "serve . -l 3000",
