@@ -159,60 +159,67 @@ function initJakartaClock() {
     setInterval(updateTime, 1000);
 }
 
-/**
- * 6. Subtle Scroll Reveals (GSAP / ScrollTrigger)
- */
 function initScrollReveals() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
     gsap.registerPlugin(ScrollTrigger);
 
     // Hero entrance
-    gsap.from('.hero-content > *', {
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: 'power2.out'
-    });
+    if (document.querySelector('.hero-content')) {
+        gsap.from('.hero-content > *', {
+            opacity: 0,
+            y: 20,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'power2.out'
+        });
+    }
 
     // Project cards reveal
-    gsap.utils.toArray('.project-card').forEach(card => {
-        gsap.from(card, {
+    const projectCards = gsap.utils.toArray('.project-card');
+    if (projectCards.length > 0) {
+        projectCards.forEach(card => {
+            gsap.from(card, {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 88%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+    }
+
+    // About section
+    if (document.querySelector('.about-content')) {
+        gsap.from('.about-content', {
             opacity: 0,
             y: 30,
             duration: 0.8,
             ease: 'power2.out',
             scrollTrigger: {
-                trigger: card,
-                start: 'top 88%',
+                trigger: '.about-section',
+                start: 'top 85%',
                 toggleActions: 'play none none none'
             }
         });
-    });
+    }
 
-    // About & Contact sections
-    gsap.from('.about-grid', {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        ease: 'power2.out',
-        scrollTrigger: {
-            trigger: '.about-section',
-            start: 'top 85%',
-            toggleActions: 'play none none none'
-        }
-    });
-
-    gsap.from('.contact-card', {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        ease: 'power2.out',
-        scrollTrigger: {
-            trigger: '.contact-section',
-            start: 'top 85%',
-            toggleActions: 'play none none none'
-        }
-    });
+    // Contact section
+    if (document.querySelector('.contact-card')) {
+        gsap.from('.contact-card', {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '.contact-section',
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            }
+        });
+    }
 }
