@@ -324,6 +324,10 @@ body {
   opacity: 0.9;
 }
 
+.btn-primary:hover svg {
+  transform: translateY(2px);
+}
+
 .btn-secondary {
   background: var(--bg-surface);
   color: var(--text-main);
@@ -332,6 +336,15 @@ body {
 
 .btn-secondary:hover {
   border-color: var(--border-hover);
+}
+
+.btn-secondary:hover svg {
+  transform: translateX(2px);
+}
+
+.btn svg {
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
 }
 
 /* ==========================================================================
@@ -441,6 +454,14 @@ body {
   color: var(--text-dim);
   letter-spacing: 0.08em;
   margin-bottom: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.project-num-icon {
+  opacity: 0.7;
+  flex-shrink: 0;
 }
 
 .project-title {
@@ -465,13 +486,13 @@ body {
   text-underline-offset: 4px;
 }
 
-.external-icon {
-  font-size: 1rem;
-  opacity: 0.5;
+.external-icon-svg {
+  opacity: 0.45;
+  flex-shrink: 0;
   transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
 
-.project-title a:hover .external-icon {
+.project-title a:hover .external-icon-svg {
   transform: translate(2px, -2px);
   opacity: 1;
 }
@@ -509,6 +530,14 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-dim);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.arch-icon {
+  opacity: 0.75;
+  flex-shrink: 0;
 }
 
 .arch-value {
@@ -537,8 +566,17 @@ body {
   width: fit-content;
 }
 
+.project-link-btn svg {
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
 .project-link-btn:hover {
   border-color: var(--border-hover);
+  transform: translateX(2px);
+}
+
+.project-link-btn:hover svg {
   transform: translateX(2px);
 }
 
