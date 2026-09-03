@@ -1,7 +1,7 @@
 {
-  "name": "portfolio",
+  "name": "fusia",
   "version": "1.0.0",
-  "description": "Portfolio of Rifai - Software Developer",
+  "description": "Fusia - Independent Web Apps & Tools",
   "main": "index.html",
   "scripts": {
     "dev": "serve . -l 3000",

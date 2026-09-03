@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <rect width="512" height="512" rx="128" fill="#08090C"/>
-  <rect x="16" y="16" width="480" height="480" rx="112" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="8"/>
-  
-  <!-- Monogram R -->
-  <path d="M160 140 H270 C330 140, 360 170, 360 215 C360 260, 330 285, 270 285 H216 V370 H160 V140 Z M216 190 V235 H265 C290 235, 304 225, 304 212 C304 200, 290 190, 265 190 Z" fill="#F3F4F6"/>
-  <path d="M260 285 L350 370 H285 L205 290 Z" fill="#6366F1"/>
-  
-  <!-- Glowing Dot -->
-  <circle cx="370" cy="360" r="18" fill="#6366F1"/>
-  <circle cx="370" cy="360" r="28" fill="none" stroke="#6366F1" stroke-width="4" opacity="0.4"/>
+  <rect width="512" height="512" rx="128" fill="#09090B"/>
+  <rect x="8" y="8" width="496" height="496" rx="120" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="4"/>
+  <defs>
+    <linearGradient id="fusiaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+  </defs>
+  <!-- Winged F -->
+  <path d="M160 140 C230 135, 310 142, 365 195 C345 225, 285 240, 225 242 C185 244, 172 262, 172 310 C215 305, 290 302, 340 330 C325 362, 280 380, 230 380 C190 380, 172 405, 172 450 H110 C110 320, 110 200, 160 140 Z" fill="url(#fusiaGrad)"/>
 </svg>
