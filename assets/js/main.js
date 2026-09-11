@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavbarScroll();
     initScrollProgress();
     initCopyEmail();
-    initJakartaClock();
     initScrollReveals();
 });
 
@@ -133,30 +132,6 @@ function initCopyEmail() {
             toast.classList.remove('show');
         }, 2500);
     }
-}
-
-/**
- * 5. Live Jakarta Time (WIB)
- */
-function initJakartaClock() {
-    const timeDisplay = document.getElementById('local-time');
-    if (!timeDisplay) return;
-
-    function updateTime() {
-        const now = new Date();
-        const options = {
-            timeZone: 'Asia/Jakarta',
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: false
-        };
-        const formatter = new Intl.DateTimeFormat('en-GB', options);
-        const timeString = formatter.format(now);
-        timeDisplay.textContent = `Jakarta ${timeString} WIB`;
-    }
-
-    updateTime();
-    setInterval(updateTime, 1000);
 }
 
 function initScrollReveals() {
